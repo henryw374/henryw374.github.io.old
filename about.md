@@ -4,8 +4,6 @@ title: About
 permalink: /about/
 ---
 
-I have been developing software for a lot of years
-
 
 ### Contact me
 
