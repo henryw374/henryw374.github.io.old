@@ -23,7 +23,7 @@ Doing this should be zero-cost, but I rarely see it in the wild.
 
 ### Why Cross-Platform ?
 
-Many authors and speakers have expounded the virtues of _Separating Decisions from Dependencies_ [some of my favourites][1], typically
+Many authors and speakers have expounded the virtues of _Separating Decisions from Dependencies_ [1], typically
 citing reliability/testability/visibility as benefits. I am totally in agreement with them, but why go 
 further and say Decisions code must be cross platform?
 
@@ -56,7 +56,7 @@ Briefly stated, if you've not got cross-platform logic the problems you might ha
 
 Every ClojureScript developer knows only too well how the JVM and JS runtimes differ. For the purposes of business logic that usually means:
 
-* Dates & Times: Until now, we've been making do with [clj/s-time][2] but now there is a better 
+* Dates & Times: Until now, we've been making do with clj/s-time [2] but now there is a better 
 option __[tick](https://github.com/juxt/tick)__, which is an intuitive Clojure(Script) api over the *java.time* api. 
 * Numbers: There's just the one number type in JS, but many on the JVM. This may be a blocker for some, I'll aim to revisit in a later post.
 * String Formatting: clojure.core/format does not exist in Cljs. Instead try [Sprintf](https://github.com/alexei/sprintf.js)
