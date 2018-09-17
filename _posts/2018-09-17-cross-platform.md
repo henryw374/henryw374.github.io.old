@@ -3,7 +3,7 @@ layout: post
 title: Simplify Your Business Logic
 ---
 
-A brief explanation of how to leverage your business logic code as much as possible by [Simplifying it](https://www.infoq.com/presentations/Simple-Made-Easy), with some specific tips for Clojure developers,
+A brief explanation of how to leverage your business logic code as much as possible by [Simplifying](https://www.infoq.com/presentations/Simple-Made-Easy) it, with some specific tips for Clojure developers,
 including using the cross-platform [tick](https://github.com/juxt/tick) date/time library.
 
 ## Separate Decisions from Dependencies
