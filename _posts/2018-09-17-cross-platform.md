@@ -23,7 +23,7 @@ Doing this should be zero-cost, but I rarely see it in the wild.
 
 ### Why Cross-Platform ?
 
-Many authors and speakers have expounded the virtues of _Separating Decisions from Dependencies_ [1], typically
+Many authors and speakers have expounded the virtues of _Separating Decisions from Dependencies_  or _Isolate Computation From State_ [1], typically
 citing reliability/testability/visibility as benefits. I am totally in agreement with them, but why go 
 further and say Decisions code must be cross platform?
 
@@ -42,27 +42,27 @@ sends more specific data covering the required slice of the overall dataset. Som
 
 In all these situations we need to have the same logic wherever the app runs. 
 
-Cross-Platform business logic is a massive win which is not typically available in stacks where the various app components (web ui, mobile app, server)
+Cross-Platform business logic is not typically available in stacks where the various app components (web ui, mobile app, server)
 are on disparate platforms. Clojure and Node are two stacks where I've personally used this idea to great effect, including on Mobile applications written on 
 React Native.
 
 Briefly stated, if you've not got cross-platform logic the problems you might have are:
 
 * Needless duplication - I don't need to say any more
-* Storing up trouble - "Manager: Ooh, nice feature, can we have that on the _insert other platform here_ as well?"
+* Storing up trouble - "User: Ooh, nice feature, can we have that on the _insert other platform here_ as well?"
 * Decisions relying on Dependencies - usually cases that somehow slipped in when you weren't looking
 
 ### Known Issues?
 
-Every ClojureScript developer knows only too well how the JVM and JS runtimes differ. For the purposes of business logic that usually means:
+The JVM and JS runtimes differ significantly, for the purposes of business logic that usually means:
 
 * Dates & Times: Until now, we've been making do with clj/s-time [2] but now there is a better 
 option __[tick](https://github.com/juxt/tick)__, which is an intuitive Clojure(Script) api over the *java.time* api. 
 * Numbers: There's just the one number type in JS, but many on the JVM. This may be a blocker for some, I'll aim to revisit in a later post.
-* String Formatting: clojure.core/format does not exist in Cljs. Instead try [Sprintf](https://github.com/alexei/sprintf.js)
+* String Formatting: No clojure.core/format equivalent exists in Cljs. Instead try [Sprintf](https://github.com/alexei/sprintf.js)
 
 
-[1] Gary Bernhardt's [Boundaries](https://eventil.com/talks/jYSOmz-gary-bernhardt-boundaries)
+[1] A couple of my favourites are Gary Bernhardt's [Boundaries](https://eventil.com/talks/jYSOmz-gary-bernhardt-boundaries)
  and Stuart Sierra's [Thinking in Data](https://www.infoq.com/presentations/Thinking-in-Data).
  
 [2] [cljs-time](https://github.com/andrewmcveigh/cljs-time) only partially implements clj-time. Working in finance as I mostly do, dates are everywhere and the 
