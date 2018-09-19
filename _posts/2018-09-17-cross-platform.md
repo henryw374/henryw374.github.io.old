@@ -23,7 +23,7 @@ Doing this should be zero-cost, but I rarely see it in the wild.
 
 ### Why Cross-Platform ?
 
-Many authors and speakers have expounded the virtues of _Separating Decisions from Dependencies_  or _Isolate Computation From State_ [1], typically
+Many authors and speakers have expounded the virtues of _Separating Decisions from Dependencies_  or _Isolating Computation From State_ [1], typically
 citing reliability/testability/visibility as benefits. I am totally in agreement with them, but why go 
 further and say Decisions code must be cross platform?
 
