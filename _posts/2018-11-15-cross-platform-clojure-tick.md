@@ -25,7 +25,7 @@ the pure functions are the decision makers, the brains of the app
 pure functions accept and return data:
 
 no async constructs: promises, core.async channels, manifold deferred's etc.
-
+no mutable objects - e.g. atoms 
 database connections
 
 any IO is out - that stays at the edge of the system
@@ -34,7 +34,9 @@ Threading/task management
 
 database connections etc -
 
-datomic db? it is a value so ok
+questionable:
+datomic db
+library/framework gunk: re-frame, lacinia resolvers, interceptors
 
 </section>
 
@@ -50,8 +52,9 @@ Could it be?
 <section data-markdown="" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 ### Why Do that?
 Note:
-#### Typical app involves both server and client components and I want to avoid Node for the server platform if possible
-#### Often the case you need shared brains on server and client
+Clients keep asking me to build apps that involve both server and client components.
+Prefer to avoid Node for the server platform if possible
+Often the case you need shared brains on server and client
   - some brains need to be on the server
   - responsive app, server does the validation
   - server needs to generate similar data views to the ui - e.g. send in email
@@ -94,6 +97,7 @@ and quite a few that aren't yet.
    :cljs [cljs-time.core :as ct])
 ```
 Note:
+works ok?
 </section>
 
 
@@ -126,6 +130,8 @@ need a way to convey date info on wire
 * Intuitive api for jsr310 domain
 * Interval Calculus
 * Clocks
+* Data literals
+* ... for Clojure and Clojurescript!
 
 Note:
 compose, decompose, shift etc etc
@@ -139,6 +145,11 @@ compose, decompose, shift etc etc
 * I teamed up with Malcolm to make it cross-platform early in 2018
 
 Note:
+</section>
+
+<section data-markdown="" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+### The Ecosystem
+![alt text]({{ site.baseurl }}/images/tick-ecosystem.svg  "Tick ecosystem")
 </section>
 
 <section data-markdown="" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
