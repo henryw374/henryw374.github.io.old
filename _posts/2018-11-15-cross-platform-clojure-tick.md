@@ -135,6 +135,8 @@ need a way to convey date info on wire
 
 Note:
 compose, decompose, shift etc etc
+see docs and Malcolm's clojure exchange talk for info on intervals
+data literals handy for the repl, storing dates
 </section>
 
 <section data-markdown="" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
@@ -142,7 +144,10 @@ compose, decompose, shift etc etc
 * brainchild of and mainly authored by Malcolm Sparks
 * originally scheduling focused
 * now full api for working with java.time + intervals
-* I teamed up with Malcolm to make it cross-platform early in 2018
+* I started work on cljc'ing clojure.java-time in early 2017 (then abandoned)
+    * ... later I teamed up with Malcolm to make Tick cross-platform early in 2018
+    * and create data literals
+    
 
 Note:
 </section>
