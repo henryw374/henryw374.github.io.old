@@ -38,7 +38,7 @@ with the same derived data (think bank account summary).
 
 * A screen in the app shows a data summary of some sort. A user can drill-down into some detail and the server
 sends more specific data covering the required slice of the overall dataset. Some of the calculations on the detail screen are
- the same as those on the summary screen.
+ the same as those that were used to make the output for the summary screen.
 
 In all these situations we need to have the same logic wherever the app runs. 
 
