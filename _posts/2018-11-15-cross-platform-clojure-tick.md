@@ -97,7 +97,10 @@ and quite a few that aren't yet.
    :cljs [cljs-time.core :as ct])
 ```
 Note:
-works ok?
+to date... the only way to do cross platform date logic
+Most applications I write involve significant date logic
+this works ok for some use cases
+cross platform or not, chances are you are using these either directly or indirectly
 </section>
 
 
@@ -115,12 +118,16 @@ cljs-time - partial fidelity with clj-time fns, wrapper over js/Date
           - locals not fully supported, and wrapping platform date
           - timezones not supported
 
-need a way to convey date info on wire 
+need a way to convey date info on wire
+aside - what boxes does the wrapper tick (functional api, clojure-y api (less verbose), add features)
 </section>
 
 <section data-markdown="" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 #### java.time (jsr310) objects
 ![jsr310 domain]({{ site.baseurl }}/images/jsr310-domain.svg  "jsr310-domain" ) 
+Note:
+easier to grok than joda time
+separation of machine and human time
 </section>
 
 
