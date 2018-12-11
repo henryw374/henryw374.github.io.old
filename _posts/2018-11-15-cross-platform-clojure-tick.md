@@ -19,14 +19,23 @@ transition: slide
 ![alt text]({{ site.baseurl }}/images/plumbing-brain.svg  "How apps should be")
 Note:
 we understand that the aim is to write pure functions and have them wired together by the plumbing
+
 the pure functions are the decision makers, the brains of the app
+
 pure functions accept and return data:
+
 no async constructs: promises, core.async channels, manifold deferred's etc.
+
 database connections
+
 any IO is out - that stays at the edge of the system
+
 Threading/task management
+
 database connections etc -
+
 datomic db? it is a value so ok
+
 </section>
 
 
@@ -63,12 +72,17 @@ Note:
 ### Platform Differences
 Concurrency model etc not an issue for what we're talking about here
 Numbers
+
 Need to drop to native string, date functions
+
 Reminder: We're not doing IO for this bit 
 ### Clojure(Script)
 Not total fidelity between the two (e.g. no equivalent of clojure.core/extend in ClojureScript)
+
 Interop code
+
 ### Libraries
+
 .... ah, libraries. Thankfully, there are lots of cross-platform libraries since the introduction of cljc
 and quite a few that aren't yet.
  </section>
@@ -88,11 +102,15 @@ Note:
 A replacement for the clj-time and cljs-time libraries
 Note:
 clj-time - wrapper over Joda-Time (well loved)
+
 Ubiquitous in clj land
+
 joda-time improved upon by java.time - which comes with the platform (so now common ground for libraries etc)
+
 cljs-time - partial fidelity with clj-time fns, wrapper over js/Date
           - locals not fully supported, and wrapping platform date
           - timezones not supported
+
 need a way to convey date info on wire 
 </section>
 
