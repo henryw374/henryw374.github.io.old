@@ -6,6 +6,8 @@ theme: simple
 transition: slide
 ---
 
+In many domains, writing code that runs cross platform is a big win. However, there's more to this than changing file extensions to .cljc. This talk explains they why and how of cross platform Clojure and demonstrates a new date/time library 'tick' that goes a long way to enabling cross platform programs.
+
 <section data-markdown>
 ## Cross Platform Awesomeness
 
@@ -123,7 +125,7 @@ aside - what boxes does the wrapper tick (functional api, clojure-y api (less ve
 </section>
 
 <section data-markdown="" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
-#### java.time (jsr310) objects
+#### java.time (jsr310) date objects
 ![jsr310 domain]({{ site.baseurl }}/images/jsr310-domain.svg  "jsr310-domain" ) 
 Note:
 easier to grok than joda time
@@ -144,6 +146,7 @@ Note:
 compose, decompose, shift etc etc
 see docs and Malcolm's clojure exchange talk for info on intervals
 data literals handy for the repl, storing dates
+drop to java.time when you need to. stackoverflow friendly. applies to cljs
 </section>
 
 <section data-markdown="" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
