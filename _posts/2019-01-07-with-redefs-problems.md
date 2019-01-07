@@ -34,9 +34,13 @@ Let's say this code is called from two threads and this is the order of events:
 
 
 Thread A executes the `with-redefs`
+
 Thread B executes the `with-redefs`
+
 Thread A executes the body and exits the `with-redefs` block (thereby restoring the root binding of foo)
+
 Thread B now executes the body and does not see the temp binding!!
+
 
 The docs for `with-redefs` I've seen say this is handy for tests, which kind of implies that you'd use `alter-var-root` or something in non-test code,  but there's nothing to stop you hitting an interleaving problem in tests either.
 
