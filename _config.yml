@@ -86,3 +86,7 @@ exclude:
   - CNAME
 
 theme: jekyll-theme-minimal
+
+feed:
+  categories:
+    - clojure

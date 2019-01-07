@@ -1,6 +1,7 @@
 ---
 layout: post
 title: When to avoid with-redefs
+category: clojure 
 ---
 
 [with-redefs](https://clojuredocs.org/clojure.core/with-redefs) is a handy clojure.core function to use when you want to:

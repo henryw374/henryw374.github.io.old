@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Simplify Your Business Logic
+category: clojure
 ---
 
 A brief explanation of how to leverage your business logic code as much as possible by [Simplifying](https://www.infoq.com/presentations/Simple-Made-Easy) it, with some specific tips for Clojure developers,
