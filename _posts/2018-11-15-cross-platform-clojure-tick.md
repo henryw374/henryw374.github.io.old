@@ -1,7 +1,7 @@
 ---
 layout: slide
 title: Cross Platform Awesomeness
-description: In many domains, writing code that runs cross platform is a big win. However, there's more to this than changing file extensions to .cljc. This talk explains they why and how of cross platform Clojure and demonstrates a new date/time library 'tick' that goes a long way to enabling cross platform programs.
+description: In many domains, writing code that runs cross platform is a big win. However, there's more to this than changing file extensions to .cljc. This talk explains the why and how of cross platform Clojure and demonstrates a new date/time library 'tick' that goes a long way to enabling cross platform programs.
 theme: simple
 transition: slide
 ---
