@@ -1,6 +1,7 @@
 ---
 layout: post
 title: When to avoid with-redefs
+description: Choosing and troubleshooting clojure.core/with-redefs
 category: clojure 
 ---
 

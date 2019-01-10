@@ -2,6 +2,7 @@
 layout: post
 title: Simplify Your Business Logic
 category: clojure
+description: A brief explanation of how to leverage your business logic code as much as possible it, with some specific tips for Clojure developers about using the cross-platform [tick](https://github.com/juxt/tick) date/time library. 
 ---
 
 A brief explanation of how to leverage your business logic code as much as possible by [Simplifying](https://www.infoq.com/presentations/Simple-Made-Easy) it, with some specific tips for Clojure developers,
