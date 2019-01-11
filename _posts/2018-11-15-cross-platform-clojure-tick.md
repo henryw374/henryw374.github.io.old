@@ -177,7 +177,7 @@ Note:
 
 <section data-markdown="" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 ## Future Work
-* tc39
+* tc39/proposal-temporal
 * spec fns (and generators, along the lines of s/inst-in)
 * scheduling
 </section>
