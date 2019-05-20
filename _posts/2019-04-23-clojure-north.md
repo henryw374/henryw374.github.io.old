@@ -1,7 +1,7 @@
 ---
 layout: slide
 title: Cross-Platform Date-Time Awesomeness
-description: My talk from Clojure/North 2019
+description: My talk from Clojure/North 2019, https://www.youtube.com/watch?v=UFuL-ZDoB2U
 transition: slide
 ---
 
