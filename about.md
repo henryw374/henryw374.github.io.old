@@ -14,3 +14,7 @@ I am a contributor to Clojurescript (the compiler) and had many PR's accepted el
 Please contact me to discuss contracts, either relating to my Clojure time libraries or anything else! 
 
 [henryw374@gmail.com](mailto:henryw374@gmail.com)
+
+### Support 
+
+To support Widd Industries' development of open source software, please contribute via [my Patreon page](https://www.patreon.com/widdindustries).
