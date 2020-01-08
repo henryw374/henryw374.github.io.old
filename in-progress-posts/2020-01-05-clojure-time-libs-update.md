@@ -43,7 +43,7 @@ This is a  Clojure(Script) library that mirrors the java.time api through kebab-
 
 ## Progress
 
-As this library only aims to mirror java.time and is generated from it, the api was essentially 'done' on the first release. The type hinting has been improved then, thanks to work which has now become [Tortilla](https://github.com/emlyn/tortilla))
+As this library only aims to mirror java.time and is generated from it, the api was essentially 'done' on the first release. The type hinting has been improved since then, thanks to work which has now become [Tortilla](https://github.com/emlyn/tortilla))
 
 Having (clojure.spec) specs and generators for java.time is something I [made a start](https://github.com/henryw374/time-literals) on, but while spec itself is changing then any lib using it is going to be subject to the same flux. There has been some interest in having [Malli](https://github.com/metosin/malli) use cljc.java-time for it's date and time logic, but IMO cljc.java-time brings too much baggage on the Clojurescript side - although read on to the next section for a possible way through for this and other libraries.
 
@@ -86,7 +86,13 @@ This is a [Juxt](https://juxt.pro/index.html) library that I made cross-platform
 
 Unsurprisingly `tick` appears to have the most traction of all the libs (despite its alpha status) and it's been great to see a number of bug fix contributions from the community since April.
 
-In the main api the things I'd like to address include parsing (defer to DateTimeFormatter entirely), take another look at `>>/<<` vs `+/-` and the `range` function and of course complete the [documentation](https://juxt.pro/tick/docs/index.html). See the full list of [issues](https://github.com/juxt/tick/issues) for other open items.
+In the main api the things I'd most like to be addressed include:
+
+* parsing (defer to DateTimeFormatter entirely)
+* another look at `>>/<<` vs `+/-` and the `range` 
+* completion of the [documentation](https://juxt.pro/tick/docs/index.html). 
+
+See the full list of [issues](https://github.com/juxt/tick/issues) for other open items.
 
 # Conclusion 
 
