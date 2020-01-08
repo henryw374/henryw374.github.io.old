@@ -70,7 +70,7 @@ Regarding point 2), I would say that in many contexts (including client projects
 
 These two issues together mean that `cljs.java-time` & related libs probably aren't going to be used by other Clojure(Script) libraries needing date/time functions.
 
-I'd say the best looking solution on the horizon is the new platform date-time library being developed for Javascript aka [tc-39/proposal-temporal](https://github.com/tc39/proposal-temporal) (hereafer PT). If JS had a good date-time api built-in then it wouldn't be necessary to bring your own of course, so need for Js-Joda and problems 1) and 2) go away, simples!
+I'd say the best looking solution on the horizon is the new platform date-time library being developed for Javascript aka [tc-39/proposal-temporal](https://github.com/tc39/proposal-temporal) (hereafter PT). If JS had a good date-time api built-in then it wouldn't be necessary to bring your own of course, so need for Js-Joda and problems 1) and 2) go away, simples!
 
 The PT api is currently being finalized and experimental work is underway to reimplement Moment.js with it. How far away it is from being included in the next version of Node, Chrome etc I really can't say. Even when it is there, the world's browsers won't get upgraded overnight so polyfills will be needed for some time in many cases. 
 
@@ -84,10 +84,9 @@ This is a [Juxt](https://juxt.pro/index.html) library that I made cross-platform
 2) Batteries-included - it depends on and configures `time-literals` & additional js-joda locale & timezone libs
 3) Power tools - Interval Algebra and Scheduling
 
-Unsurprisingly `tick` appears to have the most traction of all the libs (despite its alpha status) and it's been great to receive a number of bug fix contributions from the community since April.
+Unsurprisingly `tick` appears to have the most traction of all the libs (despite its alpha status) and it's been great to see a number of bug fix contributions from the community since April.
 
 In the main api the things I'd like to address include parsing (defer to DateTimeFormatter entirely), take another look at `>>/<<` vs `+/-` and the `range` function and of course complete the [documentation](https://juxt.pro/tick/docs/index.html). See the full list of [issues](https://github.com/juxt/tick/issues) for other open items.
-
 
 # Conclusion 
 
