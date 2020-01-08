@@ -60,13 +60,19 @@ Because js-joda existed it was a relatively small step to make a cross-platform 
 1) The myriad ways Clojurescript users consume npm libraries
 2) It's size (minimum of 43k, gzipped)
 
-On point 1), making a Clojurescript library that uses an npm lib sometimes feels a bit like the wild west but at the end of the day, whatever setup you have it's not too hard to get this library working and if you can consume foreign-libs, it 'just works'. Having a single command will drop you into a node repl with tick is pretty cool, for example:
+On point 1), making a Clojurescript library that uses an npm lib sometimes feels a bit like being in the wild west, but at the end of the day, whatever setup you have it's not too hard to get this library working and if you can consume foreign-libs, it 'just works' out of the box. Having a single command will drop you into a node repl with tick is pretty cool, for example:
 
 ```
 clj -Sdeps '{:deps {org.clojure/clojurescript {:mvn/version "1.10.597" } tick {:mvn/version "0.4.22-alpha"} }}' -m cljs.main  -re node  --repl
 ```
 
-Regarding point 2), I would say that in many contexts (including client projects I am currently engaged in) the size is simply not an issue when considering its utility, my overall build sizes, user experience etc. In other contexts the size would be a problem though. I have briefly looked into reducing its size through minification & Dead Code Elimination and although I've made a little progress I don't think it's going to be possible to reduce it enough to bring it down hugely or to be on  a par with `goog.date`.
+Regarding point 2), I would say that in many contexts (including client projects I am currently engaged in) the size is simply not an issue when trading off 
+
+* utility 
+* overall build size 
+* user experience 
+
+In other contexts the size would be a problem though. I have briefly looked into reducing its size through minification & Dead Code Elimination and although I've made a little progress I don't think it's going to be possible to reduce it enough to bring it down hugely or to be on  a par with `goog.date`.
 
 These two issues together mean that `cljs.java-time` & related libs probably aren't going to be used by other Clojure(Script) libraries needing date/time functions.
 
@@ -89,8 +95,8 @@ Unsurprisingly `tick` appears to have the most traction of all the libs (despite
 In the main api the things I'd most like to be addressed include:
 
 * parsing (defer to DateTimeFormatter entirely)
-* another look at `>>/<<` vs `+/-` and the `range` 
-* completion of the [documentation](https://juxt.pro/tick/docs/index.html). 
+* another look at `>>/<<` vs `+/-` and `range` 
+* more [documentation of tick](https://juxt.pro/tick/docs/index.html). 
 
 See the full list of [issues](https://github.com/juxt/tick/issues) for other open items.
 
