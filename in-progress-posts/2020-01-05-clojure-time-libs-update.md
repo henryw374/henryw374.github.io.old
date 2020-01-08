@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Progress Update on My Clojure time libraries
-description: News on progress since Clojure North 2019
+title: Progress update on the Clojure(Script) date-time libraries
+description: News since Clojure North 2019
 category: clojure 
 ---
 
