@@ -13,7 +13,7 @@ For the rest of the post I'll talk about the todo list that I presented in the C
 
 # [Time Literals](https://github.com/henryw374/time-literals)
 
-Useful to any Clojurist working with java.time, either with or without a wrapper library. java.time entities are printed as tagged literals that can be pasted back in to the REPL, written to files, send over the wire and so on. 
+Useful to any Clojurist working with java.time, either with or without a wrapper library. java.time entities are printed as tagged literals that can be pasted back in to the REPL, written to files, sent over the wire and so on. 
 
 Examples:
 
