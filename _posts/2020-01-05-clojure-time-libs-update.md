@@ -24,7 +24,7 @@ Examples:
 
 ## Todo
 
-There has been some interest in having Transit encodings using the literals. Support for the `Datafy` protocol is another possible feature, but although it has a similar theme of representing data as tagged literals, it isn't that closely related so might live in a separate repo.
+There has been some interest in having Transit encodings using the literals. Support for the `Datafy` protocol is another possible feature, but although it has a similar theme of representing data, it isn't that closely related to `time-literals` so might live in a separate repo.
 
 # [cljc.java-time](https://github.com/henryw374/cljc.java-time)
 
@@ -47,7 +47,7 @@ As this library only aims to mirror java.time and is generated from it, the api 
 
 Having (clojure.spec) specs and generators for java.time is something I [made a start](https://github.com/henryw374/time-literals) on, but while spec itself is changing then any lib using it is going to be subject to the same flux. There has been some interest in having [Malli](https://github.com/metosin/malli) use cljc.java-time for it's date and time logic, but IMO cljc.java-time brings too much baggage on the Clojurescript side - although read on to the next section for a possible way through for this and other libraries.
 
-Whatever direction these specification efforts take, a set of predicate functions for the java.time entities is a generally useful thing and recent contribution to cljc.java-time added instance predicates for all java.time entities, for example `(date? x)`. 
+Whatever direction these specification efforts take, a set of predicate functions for the java.time entities is a generally useful thing and a recent contribution to cljc.java-time added instance predicates for all java.time entities, for example `(date? x)`. 
 
 The other [open issues](https://github.com/henryw374/cljc.java-time/issues) are about listing discrepancies between the underlying time libs and wrapping the further flung corners of java.time.
 
@@ -89,7 +89,7 @@ This is a [Juxt](https://juxt.pro/index.html) library that I made cross-platform
 
 1) A single-ns, intuitive api over java.time
 
-2) Batteries-included - it depends on and configures `time-literals` & additional js-joda locale & timezone libs
+2) Batteries-included - it depends on and configures `cljc.java-time`, `time-literals` & additional js-joda locale & timezone libs
 
 3) Power tools - Interval Algebra and Scheduling
 
