@@ -77,7 +77,7 @@ In other contexts the size would be a problem though. I have briefly looked into
 
 These two issues together mean that `cljs.java-time` & related libs probably aren't going to be used by other Clojure(Script) libraries needing date/time functions.
 
-I'd say the best looking solution on the horizon is the new platform date-time library being developed for Javascript aka [tc-39/proposal-temporal](https://github.com/tc39/proposal-temporal) (hereafter PT). If JS had a good date-time api built-in then it wouldn't be necessary to bring your own of course, so need for Js-Joda and problems 1) and 2) go away, simples!
+I'd say the best looking solution on the horizon is the new platform date-time library being developed for Javascript aka [tc-39/proposal-temporal](https://github.com/tc39/proposal-temporal) (hereafter PT). If JS had a good date-time api built-in then it wouldn't be necessary to bring your own of course, so no need for Js-Joda and problems 1) and 2) go away, simples!
 
 The PT api is currently being finalized and experimental work is underway to reimplement Moment.js with it. How far away it is from being included in the next version of Node, Chrome etc I really can't say. Even when it is there, the world's browsers won't get upgraded overnight so polyfills will be needed for some time in many cases. 
 
