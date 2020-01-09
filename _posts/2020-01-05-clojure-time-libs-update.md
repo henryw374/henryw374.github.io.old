@@ -53,7 +53,7 @@ The other [open issues](https://github.com/henryw374/cljc.java-time/issues) are 
 
 # [cljs.java-time](https://github.com/henryw374/cljs.java-time)
 
-This Clojurescript library exposes the npm library [Js-Joda](https://github.com/js-joda/js-joda) (a faithful and mostly complete JS implementation of java.time) and extends the Clojurescript equivalence, comparison and hashing protocols to its entitites.
+This Clojurescript library is used by `cljc.java-time` (see above). It exposes the npm library [Js-Joda](https://github.com/js-joda/js-joda) (a faithful and mostly complete JS implementation of java.time) and extends the Clojurescript equivalence, comparison and hashing protocols to its entitites.
 
 Because js-joda existed, it was a relatively small step to make a cross-platform time library, but although it was the enabler it is also something of a hindrance because of two main reasons:
 
