@@ -1,9 +1,11 @@
 ---
 layout: post
-title: Tick library on Shadow-cljs 'Just Works'
+title: Tick, Shadow-cljs & Babashka
 description: Small but significant releases for npm and babashka users
 category: clojure 
 ---
+
+# Tick
 
 [tick](https://github.com/juxt/tick) is a Clojure(Script) library for working with time and is built atop the `java.time` api (and uses a pure-JS impl of java.time on javascript platforms).
 
