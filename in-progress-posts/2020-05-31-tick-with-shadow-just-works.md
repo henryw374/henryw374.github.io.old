@@ -33,4 +33,4 @@ Why is this news? Well, previously Shadow and other npm-using Clojurescript user
 
 # Babashka
 
-In other news [cljc.java-time](https://github.com/henryw374/cljc.java-time) (the date-time library Tick depends on) now works on a third platform [babashka](https://github.com/borkdude/babashka/)!
+In other news [cljc.java-time](https://github.com/henryw374/cljc.java-time) (the date-time library Tick depends on) now works on a third platform, [babashka](https://github.com/borkdude/babashka/)!
