@@ -24,7 +24,7 @@ Examples:
 
 ## Todo
 
-There has been some interest in having Transit encodings using the literals. Support for the `Datafy` protocol is another possible feature, but although it has a similar theme of representing data, it isn't that closely related to `time-literals` so might live in a separate repo.
+There has been some interest in having Transit encodings using the literals. Support for the `datafy/nav` is another possible feature, but although it has a similar theme of representing data, it isn't that closely related to `time-literals` so might live in a separate repo.
 
 # [cljc.java-time](https://github.com/henryw374/cljc.java-time)
 

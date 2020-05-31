@@ -71,11 +71,11 @@ With this setup, your library code ns can require the JS lib like so:
   
 Importantly, this require will work for both foreign-lib/Cljsjs users and npm users.  
 
-Now you have that the mvn-packaged foreign-lib, your library pom.xml can depend on it as it would any other non-npm lib.
+Now you have a mvn-packaged foreign-lib, your library pom.xml can depend on it as it would any other non-npm lib.
 
 ## Npm
 
-Package a `deps.cljs` file to your lib like so:
+Package a `deps.cljs` file with your lib with contents like this:
 
 ```
 {:npm-deps {"@js-joda/core" "1.12.0"}
@@ -90,7 +90,7 @@ Note that `:npm-deps` dependency in deps.cljs is **not** tied to Google Closure 
 
 The best thing I can do to explain the possibilities here is to point you to the [library consumers test](https://github.com/henryw374/clojurescript-library-consumers-test). This actually demonstrates all of the possible ways your library could be consumed by users targeting browsers and examples of how to do so.
 
-The test does include users compiling with `:npm-deps true` option but if that doesn't work, don't fret, it is [not recommended](https://clojurescript.org/reference/compiler-options#npm-deps)
+The test includes an example compiling with `:npm-deps true` option but if that doesn't work, don't fret, it is [not recommended](https://clojurescript.org/reference/compiler-options#npm-deps)
 
 # Wrap-up
 
@@ -102,4 +102,4 @@ The situation for library authors would of course be more straightforward if all
 
 As I say this guide is correct to the best of my knowledge and is something I would have found really helpful when first creating a Clojurescript library. If you have any feedback, corrections etc, I'd love to know!
 
-
+& Thanks to David Nolen for explaining some of the finer points to me! 

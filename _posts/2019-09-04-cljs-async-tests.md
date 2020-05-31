@@ -5,7 +5,7 @@ description: Removing some boilerplate from async Clojurescript tests
 category: clojure 
 ---
 
-I can mostly avoid async tests for my re-frame cljs apps. Even integration-style test that use [enzyme](https://github.com/airbnb/enzyme) or [react-testing-library](https://github.com/testing-library/react-testing-library) can be made synchronous by using `day8.re-frame.test/run-test-sync`. This is nice because they're easier to understand and debug. Sometimes though, async is necessary. The Clojurescript site describes [how to do async tests](https://clojurescript.org/tools/testing) using the
+I can mostly avoid async tests for my re-frame cljs apps. Even integration-style tests that use [enzyme](https://github.com/airbnb/enzyme) or [react-testing-library](https://github.com/testing-library/react-testing-library) can be made synchronous by using `day8.re-frame.test/run-test-sync` and faking server responses with synchronous promises. This is nice because they're easier to understand and debug. Sometimes though, async is necessary. The Clojurescript site describes [how to do async tests](https://clojurescript.org/tools/testing) using the
 `cljs.test/async` macro. 
 
 That works fine, but you have to make sure your test code calls the `done` function in every case, including 
