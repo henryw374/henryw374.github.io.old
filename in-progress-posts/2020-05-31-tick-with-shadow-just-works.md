@@ -29,7 +29,7 @@ cljs.user=> (t/today)
 
 ```
 
-Why is this news? Well, previously Shadow and other npm-using Clojurescript users had to include an extra shim library and manually include the js-joda dependencies in their package.json. A desire to move to the latest (and now scope-named) '@js-joda/core' packages, [a fix in the latest Clojurescript release](https://clojure.atlassian.net/browse/CLJS-3138) and an increase in my understanding of [how to package Clojurescript libraries](http://widdindustries.com/cljs-npm-libraries/) has resulted in these improvements. Note, there are still a few [need-to-knows for Tick Clojurescript users](https://juxt.pro/tick/docs/index.html#_clojurescript), but not too many!
+Why is this news? Well, previously Shadow and other npm-using Clojurescript users of Tick had to include an extra shim library and manually include the js-joda dependencies in their package.json. A desire to move to the latest (and now scope-named) '@js-joda/core' packages, [a fix in the latest Clojurescript release](https://clojure.atlassian.net/browse/CLJS-3138) and an increase in my understanding of [how to package Clojurescript libraries](http://widdindustries.com/cljs-npm-libraries/) has resulted in these improvements. Note, there are still a few [need-to-knows for Tick Clojurescript users](https://juxt.pro/tick/docs/index.html#_clojurescript), but not too many!
 
 # Babashka
 
