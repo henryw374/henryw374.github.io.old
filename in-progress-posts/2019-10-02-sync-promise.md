@@ -1,13 +1,16 @@
 ---
 layout: post
 title: Cljs Tests with Synchronous Promises
-description: Jimmy Page helps us write synchronous tests
+description: Jimmy Page takes time out to help us write synchronous tests
 category: clojure 
 ---
 
 Led Zepellin,  
 Iron Butterfly, 
-Quiet Riot, Synchronous Promise,  ... just saying those names makes me start doing air guitar!
+Quiet Riot, 
+Synchronous Promise,  
+
+... just saying those names makes me want to start playing air guitar!
 
 In Clojurescript apps where you have some Promise-producing thing, like `(js/fetch "www.example.com")`, it's not uncommon to want to stub that out in tests. Since it's being stubbed out, you could use that as an opportunity to have your test be synchronous, by having the stub return a [Synchronous Promise](https://github.com/henryw374/cljs-synchronous-promise). 
 
@@ -36,7 +39,7 @@ Once created, a synchronous promise will work with your promise-using code, for 
 
 # How it works
 
-The code itself is pithy and was fun to write. Doing this I learned that `deftype` is the [Clojurescript equivalent of writing JS contructor functions](https://github.com/clojure/clojurescript/wiki/Working-with-Javascript-classes) 
+This was fun to write and doing this I learned that `deftype` is the [Clojurescript equivalent of writing JS contructor functions](https://github.com/clojure/clojurescript/wiki/Working-with-Javascript-classes) 
 
 ```
 (deftype SyncPromise [ok? v]
