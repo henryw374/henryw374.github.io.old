@@ -2,7 +2,7 @@
 layout: post-cljs
 title: Temporal (Javascript's new Date-Time API) vs java.time (JSJoda on JS runtimes)
 description: Javascript is getting a new platform Date-Time Library, called Temporal
-category: clojure,js,java
+category: clojure
 ---
 
 If you are involved in the manufacture of computers in Europe then you're probably already aware that your
