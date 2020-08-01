@@ -10,7 +10,7 @@ friendly local 39th technical committee has it's own [toy scripting language](ht
 dates and times is somewhat lacking ([good talk on that](https://www.youtube.com/watch?v=aVuor-VAWTI){:target="_blank"}). 
 Well, work is currently underway to change that 
 situation and in this post I'm going to compare the new API, called `Temporal`, to a similar effort from a few years back
-that was made for the Java that resulted in a platform API called `java.time`.
+that was made for `Java` that resulted in a platform API called `java.time`.
 
 At the time of writing `Temporal` ([sha](https://github.com/tc39/proposal-temporal/tree/2d35fa3ded4d8cef5d9a944365994ae60b5ed663){:target="_blank"}) 
 is 'Stage 2' meaning it's still a work in progress.
