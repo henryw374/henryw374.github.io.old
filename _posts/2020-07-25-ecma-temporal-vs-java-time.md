@@ -39,7 +39,7 @@ use Temporal directly.
 **Note:** *Both `Temporal` and `JSJoda` are included in this page, so you can open your browser's JS console and paste in all of the 
 code snippets*.
 
-Temporal and java.time are very similar overall: they have mostly the same set of entities and there is support for going to and from the majority of 
+*tl;dr* IMO Temporal and java.time are very similar overall: they have mostly the same set of entities and there is support for going to and from the majority of 
 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601){:target="_blank"} representations). Temporal is a smaller API overall, but of course
  the gaps could be filled by user libraries if desired.
 
