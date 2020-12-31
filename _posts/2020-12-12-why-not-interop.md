@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Why not Interop with java.time?
-description: Using interop syntax with the java.time API is not wrong, but there is an alternative
-that is superior in every respect - and it just got much better
+description: Using interop syntax with the java.time API is not wrong, but there is an alternative that is superior in every respect - and it just got much better
 category: clojure 
 ---
 
