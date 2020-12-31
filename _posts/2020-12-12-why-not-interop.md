@@ -7,7 +7,7 @@ category: clojure
 
 Some in the Clojure community would say that if a Java or JS API is good, then it needn't be 
 'wrapped' in a library, because plain interop code is idiomatic and any wrapping
-library is might:
+library might:
 
 * Miss out something of the underlying API (so you likely need to know both anyway)
 * Have fewer tests/documentation/community etc
@@ -15,7 +15,7 @@ library is might:
 * Not keep up with releases of the underlying
 
 Those concerns all seem reasonable, but consider [this java.time wrapper](https://github.com/henryw374/cljc.java-time).
-Every one of the above concerns is addressed: The Clojure API is identical to the underlying (addresses first 3 points) and the
+Every one of the above concerns is addressed: The Clojure API is identical to the underlying Java API (addresses first 3 points) and the
 underlying API is stable (last point).
 
 Okaaaay ... but if it's so similar, why use it at all?
@@ -38,7 +38,7 @@ This could be used for spec definitions for example.
 
 ## Exceptions That Say Something Helpful
 
-This is a very recent addition (0.1.12) and takes a bit of explaining. In java.time, you have an `Instant` which is equivalent to a
+This is a very recent addition ([0.1.12](https://clojars.org/cljc.java-time) and takes a bit of explaining. In java.time, you have an `Instant` which is equivalent to a
 `java.util.Date` in that it's instances represent `the start of a nanosecond on the timeline`. Now the tricky thing
 about Instants is that the only field/data they contain is an offset from the UNIX Epoch (midnight, Jan 1st 1970, UTC). Instants
 know nothing about years, months, days, hours etc etc. In the lingo, they are not 'calendar-aware', so you cannot add
@@ -61,7 +61,7 @@ On a related note, try adding a year to an Instant:
     (.plus 1 ChronoUnit/YEARS))
 ```
 
-It compiles ok, but at runtime you get an exception like `Unsupported Field : YearOfEra`. 
+It compiles ok, but at runtime you'll get a run-time exception: `Unsupported Field : YearOfEra`. 
 
 So what's the problem here? People should just learn this basic fact about the java.time API before using it, right?
 
