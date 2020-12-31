@@ -260,7 +260,7 @@ Temporal.DateTime.from('2019-03-31T00:00:00').day
 # Conclusion
 
 Temporal and java.time are fundamentally similar. Temporal has a smaller API and possibly that results in something that's
-easier to learn, but results in more verbose code. Personally I value ease-of-learning much more.
+easier to learn, but results in more verbose code. Personally I value ease-of-learning much more. 
 
 Date-time logic is just like math: you can type stuff in and you'll get answers... but are they the right ones? 
 Have you got a type system that will let you know that you got it wrong? (please let me know if you do!) But it's not 
