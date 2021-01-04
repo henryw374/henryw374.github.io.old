@@ -98,6 +98,6 @@ That message alone should at least prevent a lot of github issues and questions 
 These are traditional wrappers and definitely come with trade-offs. In my work we use date logic a lot, which I think
 means it's an environment where it's worth learning to use a wrapper because of the extra+improved API. That being said, I use a wrapper for 80% of 
 regular date-arithmetic - for things I consider more obscure or esoteric, or where performance might suffer, I drop
-to cljc.java-time (which tick is using under the hood).
+to cljc.java-time (which tick is using under the hood) - and in very rare cases - plain interop.
 
 If you have any thoughts/questions, please let me know ;-)
