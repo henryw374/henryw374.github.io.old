@@ -94,7 +94,7 @@ That message alone should at least prevent a lot of github issues and questions 
 
 I am adding that message because I think it's unlikely I could get java.time messages changed, I don't even 
 know how I would do that. I do know how to make this suggestion for the new date-time API being made for the world's most popular
-programming language thought, [raise an issue](https://github.com/tc39/proposal-temporal/issues/1233). That
+programming language though, raise [an issue!](https://github.com/tc39/proposal-temporal/issues/1233). That
 improved error message may be my greatest contribution to humanity :)
 
 # What about traditional wrappers like tick or clojure.java-time ?
