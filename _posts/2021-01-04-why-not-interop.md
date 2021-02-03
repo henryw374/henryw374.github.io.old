@@ -82,16 +82,20 @@ If you now do some erroneous thing with Instant in cljc.java-time, like this:
 You get an exception with message:
 
 ``` 
-Hi there! - It looks like you might be trying to something with a java.time.Instant that would require it to be 'calendar-aware'.
-You should know that java.time.Instant isn't calendar-aware and so has no facility with working 
-with years, months, days etc. To get around that, consider converting the Instant to a 
-ZonedDateTime first or for formatting/parsing specifically, you might add a zone to your formatter.
- see https://stackoverflow.com/a/27483371/1700930. 
+Hi there! - It looks like you might be trying to do something with a java.time.Instant that would require it to be 'calendar-aware', 
+but since it isn't, it has no facility with working with years, months, days etc. 
+To get around that, consider converting the Instant to a ZonedDateTime first or for formatting/parsing specifically, 
+you might add a zone to your formatter. see https://stackoverflow.com/a/27483371/1700930. 
  
 You can disable these custom exceptions by setting -Dcljc.java-time.disable-helpful-exception-messages=true
 ```
 
 That message alone should at least prevent a lot of github issues and questions I get .... let's see!
+
+I am adding that message because I think it's unlikely I could get java.time messages changed, I don't even 
+know how I would do that. I do know how to make this suggestion for the new date-time API being made for the world's most popular
+programming language thought, [raise an issue](https://github.com/tc39/proposal-temporal/issues/1233). That
+improved error message may be my greatest contribution to humanity :)
 
 # What about traditional wrappers like tick or clojure.java-time ?
 
