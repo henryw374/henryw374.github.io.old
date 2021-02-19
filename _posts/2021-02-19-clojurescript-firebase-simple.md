@@ -47,8 +47,9 @@ and indeed it is. It's also not necessary, as I'll demonstrate below.
 
 # Wrapper-free Firebase
 
-As I say, the Firebase docs are great and have got me a non-cljs setup very easily. Could I bring in 
-Clojurescript without introducing much new complexity? I've tried to that in the todo app.
+The Firebase docs are great and got me a non-cljs 'hello, world' very easily. Could I bring in 
+Clojurescript without introducing much new complexity? Well, I've tried to that in the todo app - see what
+you think.
 
 One thing you'll notice with Firebase is that you pick and choose the APIS you want to include. For example if you want a database,
 you get a choice. This is nice and in my solution, In my todo-list app, I use just 'auth' and 'realtime database',
@@ -80,12 +81,13 @@ function into a re-frame subscription as I'll demonstrate next.
 
 ## 'Realtime database' with Re-Frame
 
-Pushing data to the database is pretty straightforward and well documented and you can imaging how
-those calls might be wrapped up as [Re-Frame 'effects'](https://day8.github.io/re-frame/api-builtin-effects/#what-are-effects).
+Pushing data to the database is pretty straightforward and well documented and you can imagine how
+those calls might be wrapped up as [Re-Frame 'effects'](https://day8.github.io/re-frame/api-builtin-effects/#what-are-effects),
+as they have been in the 'todo' demo app.
 
 Listening for data with Re-frame is a bit more interesting though. Similar to the atom that contained
-the auth data above, we can have a function to return an atom containing the current value at some 
-path in the Firebase database:
+the auth data above, we can have a function to return a Reaction (same thing as reactive atom effectively) 
+containing the current value at some path in the Firebase database:
 
 ```clojure
 (defn on-value [{:keys [path]}]
@@ -111,26 +113,26 @@ from a [Signal function](https://github.com/day8/re-frame/blob/2965ffeda9b8f3b68
   ))
 ```  
 
-If you haven't used signal functions, it's well worth a read of the hefty docstring on 'reg-sub'
-to understand them. 
+If you haven't used signal functions before, it's well worth a read of the hefty docstring on 'reg-sub'
+to understand them. The todo-list app demostrates this in action.
 
 So... we can read and write data and the Re-frame 'app-db' is nowhere in sight. I haven't got 
-anything against the app-db - but I don't want to stuff in there unnecessarily - because for all 
-data in there, you have to know what put it there, how it's lifecycle is managed and so on.
+anything against the app-db - but I don't want to stuff in there unnecessarily - because for any 
+data in there, you have to understand what effects put it there, how it's lifecycle is managed and so on.
 
 I might write more about this in a later post.
 
-Firebase stores the data in the cloud and keeps a local copy of that sync'ed in the browser's store in case the
-connection drops. Re-frame handles doing minimal computation work, de-duping subscriptions etc. 
+Firebase stores the data in the cloud and keeps a local copy of that sync'ed in the browser's store in 
+case the connection drops. Re-frame handles doing minimal computation work, de-duping subscriptions etc. 
 So... let's just lean on all that awesome machinery!
 
-What about data the user is editing? I wouldn't have that in the app-db, it would most likely be component-local state only when 
-the user is actually changing it, and it would get sent off to Firebase via `re-frame/dispatch` at
+What about data the user is editing? In the todo app, that is component-local state only when 
+the user is actually changing it, and is sent off to Firebase via `re-frame/dispatch` at
 the appropriate time.
 
 In fact, in this little example you might see Re-Frame as overkill and just stick with Reagent.
 
-One last point about the database - it's json data of course, so it's not going to work to 
+One last point about the Firebase database - it's json data of course, so it's not going to work to 
 create Clojure maps with the usual edn goodies like 
 non-string keys, namespaced keywords & etc. A nice approach to stay in JS/JSON
 land is to use [cljs-bean](https://github.com/mfikes/cljs-bean) for your data, rather than native 
