@@ -48,11 +48,12 @@ and indeed it is. It's also not necessary, as I'll demonstrate below.
 # Wrapper-free Firebase
 
 The Firebase docs are great and got me a non-cljs 'hello, world' very easily. Could I bring in 
-Clojurescript without introducing much new complexity? Well, I've tried to that in the todo app - see what
+Clojurescript without introducing much new complexity? Well, I've attempted that in the todo app - see what
 you think.
 
-One thing you'll notice with Firebase is that you pick and choose the APIS you want to include. For example if you want a database,
-you get a choice. This is nice and in my solution, In my todo-list app, I use just 'auth' and 'realtime database',
+One thing you'll notice with Firebase is that you pick and choose the APIs you want to include. For example 
+if you want to use a database,
+you get a choice of two different ones. This is nice and in my todo-list app, I use just 'auth' and 'realtime database',
 so that's all you'll see any code for. 
 
 ## Auth with Re-Frame
@@ -72,11 +73,11 @@ is listening for the user information once they have successfully authenticated:
 ``` 
 
 This function that returns a Reagent atom that will contain user information when it is available.
-It doesn't matter if the user has already authenticated or not, we can call this function any time and
-use the result in a reactive context, such as in a Reagent component.
+We can call this function any time and use the result in a reactive context, such as in a Reagent component -
+It doesn't matter if the user has already authenticated or not at the time the function is invoked. 
 
 There's no need to store the user data in the app-db. Doing so would leave us with more state to 
-manage and clean up and so on. There's no Re-frame involvement required, but we could tie this 
+manage, clean up and so on. There's no Re-frame involvement required, but we could tie this 
 function into a re-frame subscription as I'll demonstrate next.
 
 ## 'Realtime database' with Re-Frame
@@ -100,8 +101,8 @@ containing the current value at some path in the Firebase database:
       :on-dispose #(do (.off ref "value" callback)))))
 ```
 
-The Reagent atom returned from this function will be updated with the current value at that path in the 
-database whenever it changed - nice! Now, if we want to use that as part of a Re-frame subscription, we can call it 
+The 'Reaction' object returned from this function will be updated with the current value whenever 
+it changes - nice! Now, if we want to use that as part of a Re-frame subscription, we can call it 
 from a [Signal function](https://github.com/day8/re-frame/blob/2965ffeda9b8f3b687e2c3e0ba9a62e7fe64c0bb/src/re_frame/core.cljc#L201)
 
 ```clojure
@@ -113,16 +114,14 @@ from a [Signal function](https://github.com/day8/re-frame/blob/2965ffeda9b8f3b68
   ))
 ```  
 
-If you haven't used signal functions before, it's well worth a read of the hefty docstring on 'reg-sub'
-to understand them. The todo-list app demostrates this in action.
+If you haven't used signal functions before, it's well worth a read of the [hefty docstring](https://github.com/day8/re-frame/blob/2965ffeda9b8f3b687e2c3e0ba9a62e7fe64c0bb/src/re_frame/core.cljc#L201) 
+to understand them. The todo-list app demonstrates this in action.
 
-So... we can read and write data and the Re-frame 'app-db' is nowhere in sight. I haven't got 
+So... we can read and write data, and the Re-frame 'app-db' is nowhere in sight. I haven't got 
 anything against the app-db - but I don't want to stuff in there unnecessarily - because for any 
-data in there, you have to understand what effects put it there, how it's lifecycle is managed and so on.
+data in there, you have to understand what effects put it there, how it's lifecycle is managed and so on. I might write more about this in a later post.
 
-I might write more about this in a later post.
-
-Firebase stores the data in the cloud and keeps a local copy of that sync'ed in the browser's store in 
+Firebase stores the data in the cloud and keeps a local copy of that sync'ed in the [browser's store](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage) in 
 case the connection drops. Re-frame handles doing minimal computation work, de-duping subscriptions etc. 
 So... let's just lean on all that awesome machinery!
 
@@ -140,12 +139,13 @@ Clojure datastructures.
 
 ## Compile and Deploy
  
-The todo-list README demostrates doing a build with advanced compilation.
+The todo-list README demonstrates doing a build with advanced compilation.
   
 The build includes the `:infer-externs` option, which uses the `^js` [tag metadata](https://code.thheller.com/blog/shadow-cljs/2017/11/06/improved-externs-inference.html)
 to let the compiler know to leave the calls to the Firebase APIs as they are.
 
-Keep these compiler debug opts handy if you do get any problems in advanced compilation though:
+Keep these compiler debug opts handy if you do get any problems with the minified build (ie you see
+error messages in the browser console like 'x.y is not a function'):
 
 ```clojure
 (def debug-opts
@@ -158,9 +158,9 @@ Keep these compiler debug opts handy if you do get any problems in advanced comp
 ## Conclusion
 
 Firebase seems pretty nice for a hobby project - and maybe for more serious apps too. Using it with
-Clojurescript and Re-Frame is straightforward and a natural fit. For example Firebase `onValue` lets
+Clojurescript and Re-Frame is straightforward and a natural fit. For example, Firebase `onValue` lets
 you listen for the latest value in some part of the database and that is easily hooked into a Re-frame
-subscription so the app magically updates whenever the database does. Simples!
+subscription so the view magically updates whenever the database does. Simples!
 
 Some points of note:
 
