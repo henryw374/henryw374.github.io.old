@@ -58,7 +58,7 @@ so that's all you'll see any code for.
 
 ## Auth with Re-Frame
 
-The todo app is allows users to authenticate with a Google login. 
+The todo app requires users to authenticate with a Google login. 
 
 Firebase has a simple api to trigger this. The interesting bit from a Clojurescript point of view
 is listening for the user information once they have successfully authenticated:
