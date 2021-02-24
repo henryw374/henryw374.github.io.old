@@ -19,7 +19,7 @@ See my github profile for more
 
 Please contact me to discuss contracts, either relating to my Clojure time libraries or anything else! 
 
-[henryw374@gmail.com](mailto:henryw374@gmail.com)
+[henry@widdindustries.com](mailto:henry@widdindustries.com)
 
 ### Support 
 
