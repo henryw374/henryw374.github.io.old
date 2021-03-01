@@ -5,6 +5,8 @@ description: Using dot-access vs goog.object vs something else
 category: clojure 
 ---
 
+There are choices as to how you access Javascript objects from Clojurescript.
+
 Starting with an appeal to authority:
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">In concrete terms, sounds like<br>✓ (.-length &quot;abc&quot;)<br>X (.-length <a href="https://twitter.com/hashtag/js?src=hash&amp;ref_src=twsrc%5Etfw">#js</a> {:length 3})<br>✓ (goog.object/get <a href="https://twitter.com/hashtag/js?src=hash&amp;ref_src=twsrc%5Etfw">#js</a> {:length 3} &quot;length&quot;)</p>&mdash; Mike Fikes (@mfikes) <a href="https://twitter.com/mfikes/status/882585745424338944?ref_src=twsrc%5Etfw">July 5, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
