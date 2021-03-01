@@ -15,14 +15,14 @@ Firstly, I'll try to make a clear distinction between JS data vs API: A data obj
 any object you could round-trip through JSON/stringify => JSON/parse. An object that appears 
  to be a data object because it only contains properties (ie no methods), may not be a data object, because those
 properties might be [getter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)s.
-That definition should be good enough for the purposes of this ponst, let's ignore Object.prototype etc
+That definition should be good enough for the purposes of this post, let's ignore `Object.prototype` etc
 for now. 
 
-I find it interesting wrt to the `(.-length "foo")` item in Mike's list. 
+I find the `(.-length "foo")` item in Mike's list interesting. 
 It's clear in the case of the string `"foo"` that this is not a data object 
 and btw `goog.object/get` will not work to access `length`, or any other property of a string.
 
-Consider this example though: 
+But consider this example though: 
 
 ```clojure
 (goog.object/get #js[] "length")
