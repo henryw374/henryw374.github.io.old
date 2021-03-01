@@ -57,7 +57,7 @@ use. This comes as the cost of having to remember to put type hints in. I've com
  
  Yet another approach would be to use a library such as [js-interop](https://github.com/applied-science/js-interop). Using that,
  you would write `(j/call foo :bar 1)` for the js equivalent `foo.bar(1)`. Type hints are not needed if you use that 
- library, so that's definitely an option to consider.
+ library, so it's definitely an alternative to consider.
  
 So, now that's all cleared up, which [dot-access](https://cljs.github.io/api/syntax/dot) is preferred, `a.b.c` or `(.. a -b -c)` ...?  
 
