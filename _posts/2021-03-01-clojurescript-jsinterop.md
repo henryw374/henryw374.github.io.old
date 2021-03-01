@@ -5,7 +5,7 @@ description: Using dot-access vs goog.object vs something else
 category: clojure 
 ---
 
-There are choices as to how you access Javascript objects from Clojurescript.
+There are choices as to how you access a Javascript object's methods and properties from Clojurescript.
 
 Starting with an appeal to authority:
 
