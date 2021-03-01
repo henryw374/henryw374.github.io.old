@@ -35,7 +35,7 @@ So, we have a stylistic choice between that and `(.-length #js[])`. Why choose e
 It's easy to see that the goog.object one will survive advanced compilation, whereas in some 
 cases the dot-access would need a type hint, for example: `(.-length ^js foo)`. 
 
-So +1 for the goog.obj approach so far.
+So +1 for the goog.obj approach so far I guess.
 
 In working with the API of some JS object, it's quite common to both access properties and call methods:
 
@@ -47,15 +47,19 @@ In working with the API of some JS object, it's quite common to both access prop
 
 As I pointed out before, we could have accessed `bar-prop` with `goog.object/get`, but
 this example is being consistent in using dot access only for the API of `foo`. We could also have accessed `methodFoo` with 
-goog.object/get (and then invoked it), but it should be clear it would not read too well.
+goog.object/get (and then invoked it), but I don't think it would be idiomatic to do so.
 
 So, Following a rule 'dot access only for APIs' means the code makes a clear statement that it is
 working with API, not data - regardless of whether it is just properties, or both methods and properties we need to 
 use. This comes as the cost of having to remember to put type hints in. I've come to think
  type hints aren't so bad, because now [type hints are documented](https://code.thheller.com/blog/shadow-cljs/2017/11/06/improved-externs-inference.html)
- I think it's easy enough to understand you just need `^js` and where I need to put it.
+ I think it's easy enough to understand you just need to add `^js` when you first see the js object in scope.
  
-Now that's cleared up, which [dot-access](https://cljs.github.io/api/syntax/dot) is preferred, `a.b.c` or `(.. a -b -c)` ...?  
+ Yet another approach would be to use a library such as [js-interop](https://github.com/applied-science/js-interop). Using that,
+ you might call write `(j/call foo :bar 1)` for the js equivalent `foo.bar(1)`. Type hints are not needed if you use that 
+ library, so that's definitely an option to consider.
+ 
+So, now that's all cleared up, which [dot-access](https://cljs.github.io/api/syntax/dot) is preferred, `a.b.c` or `(.. a -b -c)` ...?  
 
 
  
