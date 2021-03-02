@@ -11,10 +11,15 @@ Starting with an appeal to authority:
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">In concrete terms, sounds like<br>✓ (.-length &quot;abc&quot;)<br>X (.-length <a href="https://twitter.com/hashtag/js?src=hash&amp;ref_src=twsrc%5Etfw">#js</a> {:length 3})<br>✓ (goog.object/get <a href="https://twitter.com/hashtag/js?src=hash&amp;ref_src=twsrc%5Etfw">#js</a> {:length 3} &quot;length&quot;)</p>&mdash; Mike Fikes (@mfikes) <a href="https://twitter.com/mfikes/status/882585745424338944?ref_src=twsrc%5Etfw">July 5, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+So that's David and Mike's opinion, now I want to look into the tradeoffs.
+
 Firstly, I'll try to make a clear distinction between JS data vs API: A data object is 
-any object you could round-trip through JSON/stringify => JSON/parse. An object that appears 
+any object you could round-trip through JSON/stringify => JSON/parse. An object that may appear 
  to be a data object because it only contains properties (ie no methods), may not be a data object, because those
 properties might be [getter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)s or setters.
+If the object came via a JS library, it's most likely not a data object unless the library documentation
+explicitly says so.
+
 That definition should be good enough for the purposes of this post, let's ignore prototypes etc
 for now. 
 
@@ -30,7 +35,7 @@ But consider this example though:
 
 That returns `0`, so demonstrating it is possible to use the `goog.object` API to access API properties.
 
-So, we have a stylistic choice between that and `(.-length #js[])`. Why choose either one? 
+So, we have what appears to be just a stylistic choice between that and `(.-length #js[])`. Why choose either one? 
 
 It's easy to see that the goog.object one will survive advanced compilation, whereas in some 
 cases the dot-access would need a type hint, for example: `(.-length ^js foo)`. 
