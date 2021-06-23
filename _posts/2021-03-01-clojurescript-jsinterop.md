@@ -77,7 +77,7 @@ which is a shame (until fixed) because to me that seems pretty tasteful.
 ### Addendum
 
 Thomas Heller pointed out to me that if Google Closure did become able to optimise regular JS libraries (things that are now foreign)
-at some point in the future, then anything interop that is using strings to access properties ( `js-interop` lib, `goog.get` & etc) would then be broken,
+at some point in the future, then anything that is using strings to access JS APIs ( `js-interop` lib, `goog.get` & etc) would then be broken,
 so that's something else to consider
 
 
