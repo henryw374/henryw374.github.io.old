@@ -7,7 +7,8 @@ category: clojure
 
 When doing advanced compilation with Clojurescript, the compiler assumes it can change any names in your
 program, except when it's told to leave certain names as-is. This only comes up as an issue when accessing
-a Javascript object's methods and properties. There are choices as to how you refer to these from Clojurescript.
+a Javascript object's methods and properties. There are choices as to how you refer to these from Clojurescript and that's
+what I'm going to look into here.
 
 IMHO Clojurescript is somewhat lacking when it comes to official documentation, hence this blog post, and the need to quote from twitter:
 
