@@ -5,6 +5,8 @@ description: Using dot-access vs goog.object vs something else
 category: clojure 
 ---
 
+advanced compilation etc etc
+
 There are choices as to how you access a Javascript object's methods and properties from Clojurescript.
 
 Starting with an appeal to authority:
@@ -64,8 +66,15 @@ use. This comes as the cost of having to remember to put type hints in. I've com
  you would write `(j/call foo :bar 1)` for the js equivalent `foo.bar(1)`. Type hints are not needed if you use that 
  library, so it's definitely an alternative to consider.
  
-So, now that's all cleared up, which [dot-access](https://cljs.github.io/api/syntax/dot) is preferred, `a.b.c` or `(.. a -b -c)` ...?  
+So, now that's all cleared up, which [dot-access](https://cljs.github.io/api/syntax/dot) is preferred, `a.b.c` or `(.. a -b -c)` ...?
 
+a.b.c does have [an issue](https://clojure.atlassian.net/jira/software/c/projects/CLJS/issues/CLJS-3315) 
+
+### Addendum
+
+Thomas Heller pointed out to me that if Google Closure did become able to optimise regular JS libraries (things that are now foreign)
+at some point in the future, then anything interop that is using strings to access properties ( `js-interop` lib, `goog.get` & etc) would then be broken,
+so that's something else to consider
 
  
                                                           
