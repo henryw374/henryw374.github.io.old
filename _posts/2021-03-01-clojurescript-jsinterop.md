@@ -66,6 +66,8 @@ use. This comes as the cost of having to remember to put type hints in. I've com
  Yet another approach would be to use a library such as [js-interop](https://github.com/applied-science/js-interop). Using that,
  you would write `(j/call foo :bar 1)` for the js equivalent `foo.bar(1)`. Type hints are not needed if you use that 
  library, so it's definitely an alternative to consider.
+
+If working with JS data, ie not API, then an alternative to `goog.object` is [Cljs Bean](https://github.com/mfikes/cljs-bean)
  
 So, now that's all cleared up, which [dot-access](https://cljs.github.io/api/syntax/dot) is preferred, `a.b.c` or `(.. a -b -c)` ...?
 
@@ -77,6 +79,7 @@ which is a shame (until fixed) because to me that seems pretty tasteful.
 Thomas Heller pointed out to me that if Google Closure did become able to optimise regular JS libraries (things that are now foreign)
 at some point in the future, then anything interop that is using strings to access properties ( `js-interop` lib, `goog.get` & etc) would then be broken,
 so that's something else to consider
+
 
  
                                                           
