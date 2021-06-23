@@ -40,8 +40,8 @@ That returns `0`, so demonstrating it is possible to use the `goog.object` API t
 
 So, we have what appears to be just a stylistic choice between that and `(.-length #js[])`. Why choose either one? 
 
-It's easy to see that the goog.object one will survive advanced compilation, whereas in some 
-cases the dot-access would need a type hint, for example: `(.-length ^js foo)`. 
+It's easy to see that the goog.object one will survive advanced compilation (meaning it is compiled to `[].length` or equivalent), whereas in some 
+cases the dot-access might need a type hint (as in `(.-length ^js foo)`) to avoid `length` being renamed.
 
 So +1 for the goog.obj approach so far I guess.
 
@@ -53,12 +53,12 @@ In working with the API of some JS object, it's quite common to both access prop
     (.methodFoo foo (inc bar-prop)))
 ```  
 
-As I pointed out before, we could have accessed `bar-prop` with `goog.object/get`, but
+We could have accessed `bar-prop` with `goog.object/get`, but
 this example is being consistent in using dot access only for the API of `foo`. We could also have accessed `methodFoo` with 
 goog.object/get (and then invoked it), but I don't think it would be idiomatic to do so.
 
 So, Following a rule 'dot access only for APIs' means the code makes a clear statement that it is
-working with API, not data - regardless of whether it is just properties, or both methods and properties we need to 
+working with API, not data - regardless of whether it is methods or properties we need to 
 use. This comes as the cost of having to remember to put type hints in. I've come to think
  type hints aren't so bad, because now [type hints are documented](https://code.thheller.com/blog/shadow-cljs/2017/11/06/improved-externs-inference.html)
  I think it's easy enough to understand you just need to add `^js` when you first see the js object in scope.
@@ -69,7 +69,8 @@ use. This comes as the cost of having to remember to put type hints in. I've com
  
 So, now that's all cleared up, which [dot-access](https://cljs.github.io/api/syntax/dot) is preferred, `a.b.c` or `(.. a -b -c)` ...?
 
-a.b.c does have [an issue](https://clojure.atlassian.net/jira/software/c/projects/CLJS/issues/CLJS-3315) 
+Dot access in the style of `a.b.c` does have [an issue](https://clojure.atlassian.net/jira/software/c/projects/CLJS/issues/CLJS-3315),
+which is a shame (until fixed) because to me that seems pretty tasteful.
 
 ### Addendum
 
