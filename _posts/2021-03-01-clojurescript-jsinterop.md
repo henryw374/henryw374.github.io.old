@@ -7,9 +7,9 @@ category: clojure
 
 When doing advanced compilation with Clojurescript, the compiler assumes it can change any names in your
 program, except when it's told to leave certain names as-is. This only comes up as an issue when accessing
-a Javascript object's methods and properties. There are choices as to how you refer to these from Clojurescript:
+a Javascript object's methods and properties. There are choices as to how you refer to these from Clojurescript.
 
-Clojurescript is somewhat lacking when it comes to official documentation, hence this blog post, and the need to quote from twitter:
+IMHO Clojurescript is somewhat lacking when it comes to official documentation, hence this blog post, and the need to quote from twitter:
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">In concrete terms, sounds like<br>✓ (.-length &quot;abc&quot;)<br>X (.-length <a href="https://twitter.com/hashtag/js?src=hash&amp;ref_src=twsrc%5Etfw">#js</a> {:length 3})<br>✓ (goog.object/get <a href="https://twitter.com/hashtag/js?src=hash&amp;ref_src=twsrc%5Etfw">#js</a> {:length 3} &quot;length&quot;)</p>&mdash; Mike Fikes (@mfikes) <a href="https://twitter.com/mfikes/status/882585745424338944?ref_src=twsrc%5Etfw">July 5, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
