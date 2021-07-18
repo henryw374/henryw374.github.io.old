@@ -5,6 +5,16 @@ description: Mostly about npm dependencies of course!
 category: clojure 
 ---
 
+# Update (2021-07-18)
+
+The Reagent project, one of the better known
+cljs projects that depends on a javascript lib, has abandoned Clojurescript's
+dependency mechanisms (foreign-libs or deps.cljs) entirely, making users bring their own React, see [this issue](https://github.com/reagent-project/reagent/issues/537)
+for details.
+
+
+Original content from here on :
+
 If you are authoring a Clojurescript library that doesn't depend on any regular Javascript (JS) code, transitively or otherwise then things are pretty straightforward: maven-package your library and put it in Clojars - job done!
 
 Still reading? OK, well things are not as straightforward when libs do depend on JS code. As of this writing there is no guide I know of that explains everything you'd need to know, so think of this as a first draft of such a guide. Ideally the content here could go on to be included in the [Clojurescript Site](https://clojurescript.org/), as a solution for open tickets such as [this](https://github.com/clojure/clojurescript-site/issues/224). Also note that what I describe here all works since the [April 2020 release of Clojurescript](https://clojurescript.org/news/2020-04-24-release) - There were some changes in that release that significantly improve the situation regarding libraries.
