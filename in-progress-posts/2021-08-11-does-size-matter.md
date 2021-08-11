@@ -7,7 +7,7 @@ category: clojure
 
 # Intro 
 
-It's been a few years since I started using JS-Joda (s Javascript implementation of java.time)
+It's been a few years since I started using JS-Joda (a Javascript implementation of java.time)
 as the basis of some cross-platform Clojure libraries and based on feedback, stars and downloads
 there are plenty of people happily using these libraries. However, I have heard JS-Joda described
 negatively a few times
@@ -20,19 +20,19 @@ very well.
 Recently a new Clojurescript date/time library [Deja-fu](https://github.com/lambdaisland/deja-fu) (based on Javascript's platform Date API) has come out, 
 positioning itself as being for 
 "applications where dealing with time is not enough of their core business to justify these large dependencies".
-Large dependendencies here being JS date libraries. I did [a talk]()
-introducing these libraries and only briefly talked about build size - should I have said they were only suitable
+Large dependendencies here being JS date libraries. I once did [a talk](Henry Widd’s talk at Clojure/North 2019)
+ introducing these libraries and only briefly talked about build size - should I have said they were only suitable
 if date/time was core to the app? FYI Build size [is already discussed](https://github.com/juxt/tick/blob/master/docs/cljs.adoc)
 in the documentation of Tick (which uses JSJoda). As developers we don't always have time to investigate all 
 aspects of every candidate library we might use
 and maybe someone would see the Deja-fu readme and choose that over e.g. [cljc.java-time](https://github.com/henryw374/cljc.java-time)
 (which has the same API as java.time, but targets Clojure and Clojurescript) just because they know 'time is not enough of their core business'.
 I feel like that would be a shame, so I decided
-to do some experiments to try to provide a bit more colour on the cost of using JS-Joda.
+to do some experiments to try to provide a bit more colour on the cost of using JS-Joda/java.time in the browser.
 
 # The Experiment
 
-For my experiment I have written two versions of a basic Clojurescript web application, using React. People are using Clojurescript
+For my experiment I have written two versions of a basic Clojurescript web application. People are using Clojurescript
 in various places, including highly constrained environments like microcontrollers, but based on what 
 I see the React webapp is what the majority are targeting and the use-case for which I would like people to have
 some help when choosing a date/time API. The [source code for these can be found here](https://github.com/henryw374/cljs-date-lib-comparison).
@@ -47,7 +47,8 @@ use any Firebase APIs.
 | [java.time version](https://friendly-eats-demo-e71b7.web.app/java-time.html) | 2.2s | 0.7s |
 
  TTI (time-to-interactive) shown in the table above was taken from PageSpeed analysis. So yes, 
-the java.time version is slower according to that analysis. Whether that amount is significant will depend on your use case.
+the java.time version is slower according to that analysis. Whether that amount is 
+ significant will depend on your use case.
 Consider that JSJoda and React are fixed-size costs though. Being a small demo app, they 
  are disproportionately big. As application code grows over time with features their 
 relative size will reduce ofc.
@@ -101,7 +102,7 @@ All that being said, I have chosen some requirements for the app where I need to
 maligned js/Date API instead of Deja-Fu api, if not using java.time. 
 
 Also, if the app needed to do custom parsing and formatting, for the java.time version I'd need to bring in a JSJoda addon, 
-which takes TTI up to 2.7 seconds on mobile, whereas with the js/Date version TTI would be the same.
+which takes TTI up to 2.5 seconds on mobile, whereas with the js/Date version TTI would be the same.
 
 # If JSJoda is so great, why bother with Tempo?
 
