@@ -20,7 +20,7 @@ very well.
 Recently a new Clojurescript date/time library [Deja-fu](https://github.com/lambdaisland/deja-fu) (based on Javascript's platform Date API) has come out, 
 positioning itself as being for 
 "applications where dealing with time is not enough of their core business to justify these large dependencies".
-Large dependendencies here being JS date libraries. I once did [a talk](Henry Widd’s talk at Clojure/North 2019)
+Large dependendencies here being JS date libraries. I once did [a talk](https://www.youtube.com/watch?v=UFuL-ZDoB2U)
  introducing these libraries and only briefly talked about build size - should I have said they were only suitable
 if date/time was core to the app? FYI Build size [is already discussed](https://github.com/juxt/tick/blob/master/docs/cljs.adoc)
 in the documentation of Tick (which uses JSJoda). As developers we don't always have time to investigate all 
@@ -135,7 +135,7 @@ Let's assume there are some applications where js-joda would not be acceptable.
 Deja-Fu's API offers a standalone `Time` type and LocalDate and LocalDateTime types, which wrap 
 goog.date's Date and Datetime respectively, both of which wrap js/Date objects.
 
-[Cljs-time]() is similar in that it wraps that same goog.date API, but doesn't include a Time entity.
+[Cljs-time](https://github.com/andrewmcveigh/cljs-time) is similar in that it wraps that same goog.date API, but doesn't include a Time entity.
 
 
 * epochMs - you get different results for same date bc user offset. returns different results depending on my time zone.
