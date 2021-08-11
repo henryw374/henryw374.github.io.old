@@ -7,10 +7,11 @@ category: clojure
 
 # Intro 
 
-It's been a few years since I started using JS-Joda (as Javascript implementation of java.time)
-as the basis of some cross platform Clojure libraries and based on feedback, stars and downloads
-there are plenty of people happily using these libraries. However, I have heard JS-Joda described a few times
-as 'bloated' or 'just too big'. In my own experience of developing Clojurescript web 
+It's been a few years since I started using JS-Joda (s Javascript implementation of java.time)
+as the basis of some cross-platform Clojure libraries and based on feedback, stars and downloads
+there are plenty of people happily using these libraries. However, I have heard JS-Joda described
+negatively a few times
+as 'bloated' or 'just too big', that kind of thing. In my own experience of developing Clojurescript web 
 applications I didn't see any problem - I'm already using Clojurescript and React so there's
 already a significant build size, but given my users' devices and 
 network connections (reasonably up to date, but nothing special) the applications seem to perform
@@ -24,7 +25,7 @@ introducing these libraries and only briefly talked about build size - should I 
 if date/time was core to the app? FYI Build size [is already discussed](https://github.com/juxt/tick/blob/master/docs/cljs.adoc)
 in the documentation of Tick (which uses JSJoda). As developers we don't always have time to investigate all 
 aspects of every candidate library we might use
-and maybe someone would see the Deja-vu readme and choose that over e.g. [cljc.java-time](https://github.com/henryw374/cljc.java-time)
+and maybe someone would see the Deja-fu readme and choose that over e.g. [cljc.java-time](https://github.com/henryw374/cljc.java-time)
 (which has the same API as java.time, but targets Clojure and Clojurescript) just because they know 'time is not enough of their core business'.
 I feel like that would be a shame, so I decided
 to do some experiments to try to provide a bit more colour on the cost of using JS-Joda.
@@ -32,7 +33,7 @@ to do some experiments to try to provide a bit more colour on the cost of using 
 # The Experiment
 
 For my experiment I have written two versions of a basic Clojurescript web application, using React. People are using Clojurescript
-in many various places, including highly constrained environments like microcontrollers, but based on what 
+in various places, including highly constrained environments like microcontrollers, but based on what 
 I see the React webapp is what the majority are targeting and the use-case for which I would like people to have
 some help when choosing a date/time API. The [source code for these can be found here](https://github.com/henryw374/cljs-date-lib-comparison).
 
@@ -40,7 +41,7 @@ These apps have been deployed on the web so that tools such as [PageSpeed](https
 can be used to test them. They are hosted on Firebase, but just because I already had a dummy project set up there. They don't
 use any Firebase APIs.
 
-/ Version             |  TTI  (mobile)        | TTI (desktop) | 
+ Version             |  TTI  (mobile)        | TTI (desktop) | 
 |---------------------|---------------|---------------|
 | [js-Date version](https://friendly-eats-demo-e71b7.web.app/js-date.html) | 2.1s | 0.6s |
 | [java.time version](https://friendly-eats-demo-e71b7.web.app/java-time.html) | 2.2s | 0.7s |
@@ -109,10 +110,10 @@ and the new Temporal platform API for Javascript (to be available in browsers in
 
 The fact that Temporal is a platform API is the big reason of course.
 
-My feeling is there is sufficiently large overlap between Java and Javascript's platform API's to make a useful 
+My feeling is there is sufficiently large overlap between Java and Javascript's platform date-time API's to make a useful 
 library that will suit cross-platform 
 library authors needing some basic date/time functionality, such as [Malli](https://github.com/metosin/malli/issues/49) and 
-as perhaps also as a basis for a 'lite' version of the Tick library. 
+perhaps also as a basis for a 'lite' version of the Tick library. 
 
 # Conclusion
 
