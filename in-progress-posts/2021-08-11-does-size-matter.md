@@ -45,14 +45,17 @@ very well.
 I once did [a talk](https://www.youtube.com/watch?v=UFuL-ZDoB2U)
  introducing cljc.java-time and related libraries, but only briefly talked about build size - should I have said it 
  was only suitable
-if date/time was so core to the app that "large dependencies" could be justified ? Build size [is already discussed](https://github.com/juxt/tick/blob/master/docs/cljs.adoc)
-in the documentation to help users understand any likely impact. As developers we don't always have time to investigate all 
+if date/time was so core to the app that "large dependencies" could be justified ? FYI Build size [is already discussed](https://github.com/juxt/tick/blob/master/docs/cljs.adoc)
+in the documentation to help users understand any likely impact. 
+
+As developers we don't always have time to investigate all 
 aspects of every candidate library we might use
 and maybe someone would see the Deja-fu readme and choose that over cljc.java-time just because they feel 'time is not enough 
-of their core business'. I feel these claims need to be looked at in more detail and quantified, 
-so I decided
-to do some experiments to try to provide a bit more colour around the relative costs of using these two libraries 
-in the browser.
+of their core business'. 
+
+I feel the relative costs of using these two libraries 
+in the browser needs to be looked at in more detail and quantified, 
+so I decided to do some experiments.
  
 # The Experiment
 
