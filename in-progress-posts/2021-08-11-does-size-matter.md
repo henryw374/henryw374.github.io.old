@@ -29,7 +29,7 @@ positioning itself as being for
 "applications where dealing with time is not enough of their core business to justify these large dependencies".
 The large dependendencies being referred to there are those required by cljc.java-time.
 
-Deja-Fu's API and also includes a pure-cljs `Time` entity and otherwise wraps the platform js/Date objects, 
+Deja-Fu's API offers a pure-cljs `Time` entity and otherwise wraps the platform js/Date objects, 
 via the goog.date API.
 
 [Cljs-time](https://github.com/andrewmcveigh/cljs-time) is similar to Deja-fu in that it wraps that same goog.date API.
