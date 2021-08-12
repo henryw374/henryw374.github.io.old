@@ -53,8 +53,8 @@ aspects of every candidate library we might use
 and maybe someone would see the Deja-fu readme and choose that over cljc.java-time just because they feel 'time is not enough 
 of their core business'. 
 
-I feel the relative costs of using these two libraries 
-in the browser needs to be looked at in more detail and quantified, 
+Reading the Deja-fu docs, I felt the relative costs of using these two libraries 
+in the browser needed to be looked at in more detail and quantified, 
 so I decided to do a experiment.
  
 # The Experiment
