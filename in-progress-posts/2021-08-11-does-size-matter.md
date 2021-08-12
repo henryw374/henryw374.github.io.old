@@ -49,8 +49,10 @@ if date/time was so core to the app that "large dependencies" could be justified
 in the documentation to help users understand any likely impact. As developers we don't always have time to investigate all 
 aspects of every candidate library we might use
 and maybe someone would see the Deja-fu readme and choose that over cljc.java-time just because they feel 'time is not enough 
-of their core business'. This seems a bit vague to me, so I decided
-to do some experiments to try to provide a bit more colour around the cost of using cljc.java-time in the browser.
+of their core business'. I feel these claims need to be looked at in more detail and quantified, 
+so I decided
+to do some experiments to try to provide a bit more colour around the relative costs of using these two libraries 
+in the browser.
  
 # The Experiment
 
@@ -95,7 +97,7 @@ Are there more metrics that we should look at here? Please suggest anything you 
 
 The [source code for these can be found here](https://github.com/henryw374/cljs-date-lib-comparison).
 
-Shown below is the code that is different in the two versions.
+Shown below is the code that is different between the two versions.
 
 ## Deja-fu 
 
