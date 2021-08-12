@@ -55,7 +55,7 @@ of their core business'.
 
 I feel the relative costs of using these two libraries 
 in the browser needs to be looked at in more detail and quantified, 
-so I decided to do some experiments.
+so I decided to do a experiment.
  
 # The Experiment
 
