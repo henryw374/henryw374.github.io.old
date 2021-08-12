@@ -1,12 +1,12 @@
 ---
 layout: post
-title: People are worried about Clojurescript build size?
-description: A look at the trade-offs to be made when developing for the web, especially wrt date/time
+title: People are worried about Clojurescript build sizes?
+description: A look at the trade-offs to be made when developing for the web, especially with respect to date/time APIs
 category: clojure
 ---
 
-I am going to compare the performance of two Clojurescript date-time libraries, in the context of 
-a typical web application (SPA).
+In this post I am going to compare the performance of two Clojurescript date-time libraries, in the context of 
+a typical single-page web application.
 
 # The Libraries
 
@@ -15,12 +15,12 @@ a typical web application (SPA).
 [cljc.java-time](https://github.com/henryw374/cljc.java-time) has the same API as java.time, 
 but targets both Clojure and Clojurescript. 
 It is implemented on top of a pure Javascript implementation of java.time
-                                            called JS-Joda.
+called JS-Joda.
 
-It is also the underlying library for Juxt's [Tick](https://github.com/juxt/tick) date-time library
- which offers a powerful API beyond what java.time offers. In this blog post I am considering cljc.java-time
+It is also the underlying library for Juxt's [Tick](https://github.com/juxt/tick) library
+ which offers a powerful date-time API beyond what java.time offers. In this blog post I am considering cljc.java-time
  instead of Tick, because I expect a larger proportion of readers will already have some familiarity 
- with cljc.java-time's API (which is the same as java.time). 
+ with java.time's API. 
 
 ## Deja-fu
 
@@ -32,7 +32,7 @@ The large dependendencies being referred to there are those required by cljc.jav
 Deja-Fu's API offers a pure-cljs `Time` entity and otherwise wraps the platform js/Date objects, 
 via the goog.date API.
 
-[Cljs-time](https://github.com/andrewmcveigh/cljs-time) is similar to Deja-fu in that it wraps that same goog.date API.
+The long established [Cljs-time](https://github.com/andrewmcveigh/cljs-time) is similar to Deja-fu in that it also wraps the goog.date API. I'm not measuring that here, but I would expect to see similar results.
 
 # Motivation
 
