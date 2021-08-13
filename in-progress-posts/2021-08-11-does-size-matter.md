@@ -102,6 +102,9 @@ The [source code for these can be found here](https://github.com/henryw374/cljs-
 
 Shown below is the code that is different between the two versions.
 
+Two functions are required, `tomorrow` returns tomorrows date so the date picker will only let users 
+pick future dates, and `interval-calc` which works out the number of days between 2 dates.
+
 ## Deja-fu 
 
 ```clojure 
@@ -135,7 +138,7 @@ Shown below is the code that is different between the two versions.
             [time-lib-comparison.app-main :as app]))
 
 (defn interval-calc [event-date]
-  (cu/between cu/days (date/parse event-date) (date/now)))
+  (-> cu/days (cu/between (date/parse event-date) (date/now))))
 
 (defn tomorrow []
   (-> (date/now)
@@ -178,9 +181,11 @@ which takes TTI up to 2.5 seconds on mobile, whereas with the Deja-fu version TT
 
 # Looking to the future
 
-[Tempo](https://github.com/henryw374/tempo) is my work-in-progress attempt to make a date-time API with the common parts 
+[Tempo](https://github.com/henryw374/tempo) is my work-in-progress attempt to make a date-time API 
+with the common parts 
 of java.time
-and the new Temporal platform API for Javascript (to be available in browsers in sometime soon, possibly this year).
+and the new platform API for Javascript called `Temporal` (to be available in browsers sometime soon, 
+possibly this year).
 
 The fact that Temporal is a platform API is the big reason of course.
 
@@ -188,6 +193,8 @@ My feeling is there is sufficiently large overlap between Java and Javascript's 
 library that will suit cross-platform 
 [library authors needing some basic date/time functionality such as Malli](https://github.com/metosin/malli/issues/49) and 
 perhaps also as a basis for a 'lite' version of the Tick library. 
+
+Will cljc.java-time become irrelevant in a Tempo future? I don't think so. 
 
 # Conclusion
 
