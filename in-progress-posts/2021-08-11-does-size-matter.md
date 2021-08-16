@@ -81,9 +81,10 @@ Consider that (the Javascript behind) cljc.java-time and React are fixed-size co
 relative size will reduce ofc.
 
 The memory usage for both apps was roughly the same, as observed in a recent version of Chrome. In this experiment, Deja-fu
-is using a single js/Date object, which has a single number field. The cljc.java-time version is using a LocalDate object which 
-has 3 numeric fields, year, month and day. This is worth bearing in mind if a significant amount of date objects need to live in 
-memory.
+is using js/Date objects, which have a single number field (offset from unix epoch). The cljc.java-time version is using 
+LocalDate objects which 
+have 3 numeric fields, year, month and day. Having the additional two fields could become significant if a large 
+amount of date objects need to live in memory.
  
 What about download size? Well, let's imagine that every time a user visits these apps, the Clojurescript code has 
 been changed and released, so cannot be retrieved from cache and must be re-downloaded.
@@ -105,8 +106,7 @@ Two functions are required
 
 * `tomorrow` returns tomorrow's date. This is needed so the date picker will only let users 
 pick future dates
-
-*`interval-calc` works out the number of days between 2 dates.
+* `interval-calc` works out the number of days between 2 dates.
 
 The [source code for these can be found here](https://github.com/henryw374/cljs-date-lib-comparison).
 
