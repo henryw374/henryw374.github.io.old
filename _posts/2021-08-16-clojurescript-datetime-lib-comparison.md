@@ -80,7 +80,7 @@ Consider that (the Javascript behind) cljc.java-time and React are fixed-size co
  are disproportionately big. If application code grows over time with features their 
 relative size will reduce ofc.
 
-The memory usage for both apps was roughly the same, as observed in a recent version of Chrome. In this experiment, Deja-fu
+The memory usage for both apps was roughly the same, as observed in a recent version of Chrome. Deja-fu
 is using js/Date objects, which have a single number field (offset from unix epoch). The cljc.java-time version is using 
 LocalDate objects which 
 have 3 numeric fields, year, month and day. Having the additional two fields could become significant if a large 
