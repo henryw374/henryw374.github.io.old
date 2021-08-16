@@ -211,4 +211,4 @@ and Clojurescript build sizes in general. What are you shipping? How did you mak
 about what build size was acceptable (including
 the use of Clojurescript itself)?
 
-Feel free to use [this thread on Clojureverse]() to comment. 
+Feel free to use [this thread on Clojureverse](https://clojureverse.org/t/performance-comparison-of-clojurescript-date-time-libraries/8046) to comment. 
