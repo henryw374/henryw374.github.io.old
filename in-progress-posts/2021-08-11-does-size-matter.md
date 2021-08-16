@@ -36,7 +36,7 @@ The long established [Cljs-time](https://github.com/andrewmcveigh/cljs-time) is 
 
 # Motivation
 
-So it seems like Deja-fu giving you a trade off with "good enough date/time library, that's very lightweight" 
+Deja-fu appears to offer a trade off between a "good-enough date/time library, that's very lightweight" 
 vs a "complete date/time library that's heavier". My feeling is that cljc.java-time is not meaningfully heavier and 
 that `light` date/time libraries are often heavy on developer time, bugs or both. 
 
@@ -52,8 +52,8 @@ I once did [a talk](https://www.youtube.com/watch?v=UFuL-ZDoB2U)
 if date/time was so core to the app that "large dependencies" could be justified ? FYI Build size [is already discussed](https://github.com/juxt/tick/blob/master/docs/cljs.adoc)
 in the documentation. 
 
-Over the years since I released cljc.java-time I've come across (and generally ignored) the `too large/heavy` pov a couple of times
-in the community, but Deja-fu's positioning has prompted me to put it head to head with cljc.java-time in an experiment.
+Over the years since I released cljc.java-time I've come across (and generally ignored) the `too large/heavy` pov a couple of times, 
+but Deja-fu's positioning has prompted me to put it head to head with cljc.java-time in an experiment.
  
 # The Experiment
 
@@ -99,12 +99,16 @@ Are there more metrics that we should look at here? Please suggest anything you 
 
 # The code 
 
-The [source code for these can be found here](https://github.com/henryw374/cljs-date-lib-comparison).
-
 Shown below is the code that is different between the two versions.
 
-Two functions are required, `tomorrow` returns tomorrows date so the date picker will only let users 
-pick future dates, and `interval-calc` which works out the number of days between 2 dates.
+Two functions are required
+
+* `tomorrow` returns tomorrow's date. This is needed so the date picker will only let users 
+pick future dates
+
+*`interval-calc` works out the number of days between 2 dates.
+
+The [source code for these can be found here](https://github.com/henryw374/cljs-date-lib-comparison).
 
 ## Deja-fu 
 
@@ -154,13 +158,13 @@ of course that is only one part of the story.
 
 Did you notice any bugs in the Deja-fu version? Go back and look if you want, I will reveal the issues in the next sentence.
 
-The Deja-fu version is expecting that there are 24 hours in a day - and generally that's right, except when crossing 
-a DST boundary. The other issue is in the `tomorrow` function of the Deja-fu version. It doesn't return tomorrow's date.  
+Firstly, the Deja-fu version is expecting that there are 24 hours in a day - and generally that's right, except when crossing 
+a DST boundary. The other issue is in the `tomorrow` function of the Deja-fu version. It returns a date, but not tomorrow's.  
 
 If you already know java.time, then it's not just different method
 signatures you'd have to deal with in using Deja-fu, but actual semantics. For example, if you 'add' a month to the 
 31st January, what happens?
-A decision had to be made by the API authors, and that decision was made differently in java.time vs js/Date.
+A decision had to be made by the API authors, and that decision was made differently.
 
 ## Is this a fair test?
 
