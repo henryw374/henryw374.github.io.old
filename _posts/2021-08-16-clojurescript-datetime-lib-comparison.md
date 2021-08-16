@@ -68,7 +68,7 @@ These apps have been deployed on the web so that tools such as [PageSpeed](https
 can be used to test them. They are hosted on Firebase, but just because I already had a dummy project set up there. They don't
 use any Firebase APIs.
 
- Version             |  TTI  (mobile)        | TTI (desktop) | 
+| Version             |  TTI  (mobile)| TTI (desktop) | 
 |---------------------|---------------|---------------|
 | [Deja-fu version](https://friendly-eats-demo-e71b7.web.app/js-date.html) | 2.1s | 0.6s |
 | [cljc.java-time version](https://friendly-eats-demo-e71b7.web.app/java-time.html) | 2.2s | 0.7s |
