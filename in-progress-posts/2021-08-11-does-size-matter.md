@@ -173,9 +173,9 @@ I did think about putting bugs in the cljc.java-time version too but they looked
 
 I have chosen some requirements for the app where in the Deja-fu version I need to use to the much 
 maligned js/Date API. If you knew you'd be going down that road from the start, you might think twice about choosing a 
-`lightweight` date/time library, but unpredictability is the annoying thing about users and their requirements isn't it? 
+`lightweight` date/time library, but generally we can't be sure what requirements will come our way. 
 
-Also, if the app needed to do custom parsing and formatting, for the cljc.java-time version I'd need to bring in a JSJoda addon, 
+Also, if the app needed to do custom parsing and formatting from/to strings, for the cljc.java-time version I'd need to bring in a JSJoda addon, 
 which takes TTI up to 2.5 seconds on mobile, whereas with the Deja-fu version TTI would be the same.
 
 # Looking to the future
@@ -193,8 +193,9 @@ library that will suit cross-platform
 [library authors needing some basic date/time functionality such as Malli](https://github.com/metosin/malli/issues/49) and 
 perhaps also as a basis for a 'lite' version of the Tick library. 
 
-Will cljc.java-time become irrelevant in a Tempo future? I don't think so because I think it will continue to be soon as 
-a solid, familiar choice that comes with minimal overhead.
+Will cljc.java-time become irrelevant in a Tempo future? I don't think so because I think for many it will continue to be a solid, 
+familiar choice that comes with minimal overhead and maximum stackoverflow-ability. [Not everyone loves java.time](http://www.menodata.de/blog/2013/12/02/die-neue-zeitbibliothek-von-java8-eine-rezension/#more-174)
+but it's usually good enough.
 
 # Conclusion
 
