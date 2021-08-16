@@ -12,9 +12,9 @@ a typical single-page web application.
 
 ## Cljc.java-time
 
-[cljc.java-time](https://github.com/henryw374/cljc.java-time) (authored by myself) has the same API as java.time, 
+[cljc.java-time](https://github.com/henryw374/cljc.java-time) (disclaimer: authored by myself) has the same API as java.time, 
 but targets both Clojure and Clojurescript. 
-It is implemented on top of a pure Javascript implementation of java.time
+It is implemented on top of a pure Javascript implementation of `java.time`
 called JS-Joda.
 
 It is also the underlying library for Juxt's [Tick](https://github.com/juxt/tick) library
@@ -27,7 +27,7 @@ It is also the underlying library for Juxt's [Tick](https://github.com/juxt/tick
 [Deja-fu](https://github.com/lambdaisland/deja-fu) is a new Clojurescript date/time library 
 positioning itself as being for
 "applications where dealing with time is not enough of their core business to justify these large dependencies".
-The 'large dependendencies' being referred to there are those required by cljc.java-time.
+The 'large dependendencies' being referred to there are those required by `cljc.java-time`.
 
 Deja-Fu's API offers a pure-cljs `Time` entity and otherwise wraps the platform js/Date objects, 
 via the goog.date API.
@@ -165,6 +165,9 @@ If you already know java.time, then it's not just different method
 signatures you'd have to deal with in using Deja-fu, but actual semantics. For example, if you 'add' a month to the 
 31st January, what happens?
 A decision had to be made by the API authors, and that decision was made differently.
+
+I did think about putting bugs in the cljc.java-time version too but they looked like obvious typos, like `(plusDays 2)` for
+`tomorrow`.
 
 ## Is this a fair test?
 
