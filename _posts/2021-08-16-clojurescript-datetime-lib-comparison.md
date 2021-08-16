@@ -17,7 +17,7 @@ but targets both Clojure and Clojurescript.
 It is implemented on top of a pure Javascript implementation of `java.time`
 called JS-Joda.
 
-It is also the underlying library for Juxt's [Tick](https://github.com/juxt/tick) library
+It is also the underlying library for Juxt's [Tick](https://github.com/juxt/tick) 
  which offers a powerful date-time API beyond what java.time offers. In this blog post I am considering cljc.java-time
  instead of Tick, because I expect a larger proportion of readers will already have some familiarity 
  with java.time's API. 
@@ -52,8 +52,8 @@ I once did [a talk](https://www.youtube.com/watch?v=UFuL-ZDoB2U)
 if date/time was so core to the app that "large dependencies" could be justified ? FYI Build size [is already discussed](https://github.com/juxt/tick/blob/master/docs/cljs.adoc)
 in the documentation. 
 
-Over the years since I released cljc.java-time I've come across (and generally ignored) the `too large/heavy` pov a couple of times, 
-but Deja-fu's positioning has prompted me to put it head to head with cljc.java-time in an experiment.
+Over the years since I released cljc.java-time I've come across (and generally ignored) the `too large/heavy` PoV a couple of times, 
+but Deja-fu's recent appearance has prompted me to put it head to head with cljc.java-time in an experiment.
  
 # The Experiment
 
@@ -81,16 +81,16 @@ Consider that (the Javascript behind) cljc.java-time and React are fixed-size co
 relative size will reduce ofc.
 
 The memory usage for both apps was roughly the same, as observed in a recent version of Chrome. Deja-fu
-is using js/Date objects, which have a single number field (offset from unix epoch). The cljc.java-time version is using 
+is using js/Date objects, which have a single number field (representing an offset from the unix epoch). The cljc.java-time version is using 
 LocalDate objects which 
-have 3 numeric fields, year, month and day. Having the additional two fields could become significant if a large 
+have 3 numeric fields: year, month and day. Having the additional two fields could become significant if a large 
 amount of date objects need to live in memory.
  
 What about download size? Well, let's imagine that every time a user visits these apps, the Clojurescript code has 
 been changed and released, so cannot be retrieved from cache and must be re-downloaded.
 It will only take 2-3 visits before the total amount of data downloaded across those visits is greater 
-in the Deja-fu version. This is because in the cljc.java-time version, the underlying JS dependencies are downloaded separately, 
-and so are cacheable. This is very simple to set up and I would put it in the 'no brainer' category
+in the Deja-fu version. This is because in the cljc.java-time version, the underlying data/time lib is downloaded separately, 
+and so is cacheable. This is very simple to set up and I would put it in the 'no brainer' category
 if data allowance is a significant issue for an app. 
 
 Maybe we could modularize the Deja-fu version so the library code can be cached over visits, 
