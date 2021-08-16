@@ -12,7 +12,7 @@ a typical single-page web application.
 
 ## Cljc.java-time
 
-[cljc.java-time](https://github.com/henryw374/cljc.java-time) has the same API as java.time, 
+[cljc.java-time](https://github.com/henryw374/cljc.java-time) (authored by myself) has the same API as java.time, 
 but targets both Clojure and Clojurescript. 
 It is implemented on top of a pure Javascript implementation of java.time
 called JS-Joda.
@@ -27,7 +27,7 @@ It is also the underlying library for Juxt's [Tick](https://github.com/juxt/tick
 [Deja-fu](https://github.com/lambdaisland/deja-fu) is a new Clojurescript date/time library 
 positioning itself as being for
 "applications where dealing with time is not enough of their core business to justify these large dependencies".
-The large dependendencies being referred to there are those required by cljc.java-time.
+The 'large dependendencies' being referred to there are those required by cljc.java-time.
 
 Deja-Fu's API offers a pure-cljs `Time` entity and otherwise wraps the platform js/Date objects, 
 via the goog.date API.
@@ -35,6 +35,10 @@ via the goog.date API.
 The long established [Cljs-time](https://github.com/andrewmcveigh/cljs-time) is similar to Deja-fu in that it also wraps the goog.date API. I'm not measuring that here, but I would expect to see similar results.
 
 # Motivation
+
+So it seems like Deja-fu giving you a trade off with "good enough date/time library, that's very lightweight" 
+vs a "complete date/time library that's heavier". My feeling is that cljc.java-time is not meaningfully heavier and 
+that `light` date/time libraries are often heavy on developer time, bugs or both. 
 
 In my own experience of developing Clojurescript web 
 applications with cljc.java-time, I haven't see any performance problems - I'm already using Clojurescript and React so there's
@@ -46,16 +50,10 @@ I once did [a talk](https://www.youtube.com/watch?v=UFuL-ZDoB2U)
  introducing cljc.java-time and related libraries, but only briefly talked about build size - should I have said it 
  was only suitable
 if date/time was so core to the app that "large dependencies" could be justified ? FYI Build size [is already discussed](https://github.com/juxt/tick/blob/master/docs/cljs.adoc)
-in the documentation to help users understand any likely impact. 
+in the documentation. 
 
-As developers we don't always have time to investigate all 
-aspects of every candidate library we might use
-and maybe someone would see the Deja-fu readme and choose that over cljc.java-time just because they feel 'time is not enough 
-of their core business'. 
-
-Reading the Deja-fu docs, I felt the relative costs of using these two libraries 
-in the browser needed to be looked at in more detail and quantified, 
-so I decided to do a experiment.
+Over the years since I released cljc.java-time I've come across (and generally ignored) the `too large/heavy` pov a couple of times
+in the community, but Deja-fu's positioning has prompted me to put it head to head with cljc.java-time in an experiment.
  
 # The Experiment
 
@@ -82,8 +80,11 @@ Consider that (the Javascript behind) cljc.java-time and React are fixed-size co
  are disproportionately big. If application code grows over time with features their 
 relative size will reduce ofc.
 
-The memory usage for both apps was roughly the same, as observed in a recent version of Chrome.
-
+The memory usage for both apps was roughly the same, as observed in a recent version of Chrome. In this experiment, Deja-fu
+is using a single js/Date object, which has a single number field. The cljc.java-time version is using a LocalDate object which 
+has 3 numeric fields, year, month and day. This is worth bearing in mind if a significant amount of date objects need to live in 
+memory.
+ 
 What about download size? Well, let's imagine that every time a user visits these apps, the Clojurescript code has 
 been changed and released, so cannot be retrieved from cache and must be re-downloaded.
 It will only take 2-3 visits before the total amount of data downloaded across those visits is greater 
@@ -138,43 +139,34 @@ pick future dates, and `interval-calc` which works out the number of days betwee
             [time-lib-comparison.app-main :as app]))
 
 (defn interval-calc [event-date]
-  (-> cu/days (cu/between (date/parse event-date) (date/now))))
+  (-> cu/days (cu/between (date/now) (date/parse event-date))))
 
 (defn tomorrow []
   (-> (date/now)
-      (date/plus-days 2)))
+      (date/plus-days 1)))
 
 ```
 
 # And now, a twist
 
-Did you notice any bugs?
-
 The libraries have been weighed up against each other performance-wise, but
 of course that is only one part of the story. 
 
-Based on my impressions of the Clojure community, I think that the majority of Clojurescript developers
- also develop in Clojure, on the jvm. That means that sooner or later they will need to use java.time as that is the 
- platform API. 
- Dates and times are complicated. What makes things needlessly more
-difficult is having to use unfamiliar APIs. It's not just different method
-signatures, but actual semantics. For example, if you 'add' a month to the 31st January, what happens?
-A decision had to be made by the API authors, and that decision was made differently in java.time vs js/Date.
+Did you notice any bugs in the Deja-fu version? Go back and look if you want, I will reveal the issues in the next sentence.
 
-So I'll leave it to the reader to spot the bugs (I have deliberately put 2 in each version), but 
-just offer a general word of warning that if you have
-measured and found a worthwhile performance gain with some software you manage, make sure you consider 
-the cost of that. Cost which 
-might be measured in developer time and hard-to-spot bugs.
+The Deja-fu version is expecting that there are 24 hours in a day - and generally that's right, except when crossing 
+a DST boundary. The other issue is in the `tomorrow` function of the Deja-fu version. It doesn't return tomorrow's date.  
+
+If you already know java.time, then it's not just different method
+signatures you'd have to deal with in using Deja-fu, but actual semantics. For example, if you 'add' a month to the 
+31st January, what happens?
+A decision had to be made by the API authors, and that decision was made differently in java.time vs js/Date.
 
 ## Is this a fair test?
 
-The main take-away I would hope readers
-get from this is that that cljc.java-time should not be dismissed out of hand for some common use cases, just 
-as we don't generally dismiss Clojure because it might be 'slower' or more 'memory hungry' compared to C. 
-
-All that being said, I have chosen some requirements for the app where in the Deja-fu version I need to use to the much 
-maligned js/Date API. 
+I have chosen some requirements for the app where in the Deja-fu version I need to use to the much 
+maligned js/Date API. If you knew you'd be going down that road from the start, you might think twice about choosing a 
+`lightweight` date/time library, but unpredictability is the annoying thing about users and their requirements isn't it? 
 
 Also, if the app needed to do custom parsing and formatting, for the cljc.java-time version I'd need to bring in a JSJoda addon, 
 which takes TTI up to 2.5 seconds on mobile, whereas with the Deja-fu version TTI would be the same.
@@ -194,13 +186,18 @@ library that will suit cross-platform
 [library authors needing some basic date/time functionality such as Malli](https://github.com/metosin/malli/issues/49) and 
 perhaps also as a basis for a 'lite' version of the Tick library. 
 
-Will cljc.java-time become irrelevant in a Tempo future? I don't think so. 
+Will cljc.java-time become irrelevant in a Tempo future? I don't think so because I think it will continue to be soon as 
+a solid, familiar choice that comes with minimal overhead.
 
 # Conclusion
 
+The main take-away I would hope readers
+get from this is that that cljc.java-time should not be dismissed out of hand for some common use cases, just 
+as we don't generally pick C over Clojure because an equivalent program might be less resource intensive.
+
 There may well be Clojurescript applications where cljc.java-time would be inappropriate, but my feeling is 
 for typical Clojurescript web applications it's not an issue.
-
+ 
 I'd definitely be interested to hear about your opinions on this
 and Clojurescript build sizes in general. What are you shipping? How did you make decisions 
 about what build size was acceptable (including
