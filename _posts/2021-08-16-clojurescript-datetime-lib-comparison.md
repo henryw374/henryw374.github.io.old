@@ -1,6 +1,6 @@
 ---
 layout: post
-title: People are worried about Clojurescript build sizes?
+title: Performance comparison of Clojurescript date/time libraries
 description: A look at the trade-offs to be made when developing for the web, especially with respect to date/time APIs
 category: clojure
 ---
