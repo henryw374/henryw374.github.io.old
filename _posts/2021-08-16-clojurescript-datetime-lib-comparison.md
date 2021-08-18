@@ -171,7 +171,7 @@ I did think about putting bugs in the cljc.java-time version too but they looked
 
 ## Is this a fair test?
 
-I have chosen some requirements for the app where in the Deja-fu version I need to use to the much 
+I have chosen some requirements for the app where in the Deja-fu version I need to use the much 
 maligned js/Date API. If you knew you'd be going down that road from the start, you might think twice about choosing a 
 `lightweight` date/time library, but generally we can't be sure what requirements will come our way. 
 
