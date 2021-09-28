@@ -5,11 +5,11 @@ description: A new version of the cross-platform date-time library has been rele
 category: clojure
 ---
 
-[Tick](https://github.com/juxt/tick) provides a powerful, cross-platform date-time API beyond what 
+[Tick](https://github.com/juxt/tick) provides a powerful, cross-platform date-time API way beyond what 
 java.time offers. It is implemented on top of [cljc.java-time](https://github.com/henryw374/cljc.java-time) which again is
 cross-platform as has exactly the same API as java.time.
 
-For years now, the API has been `alpha`, by which we mean it is "Ready to use with the caveat that the API might still 
+For years now, the API has been `alpha`, by which we mean "Ready to use with the caveat that the API might still 
 undergo minor changes". With the current release, the API of tick has been split into 
 
 * a `tick.core` namespace, which will have no breaking changes in future releases
@@ -33,6 +33,8 @@ definition, as it tried to find an appropriate entity matching the string it was
  that if
 for some reason the string you passed it was not in the format you expected, it might be parsed into
 a different date-time entity than you expected, which is never going to be good.
+* The compiler will report about any other functions not found in tick.core. Those will be the interval ones,
+so adding a require of `tick.alpha.interval` will address those.
 
 That's it. 
 
