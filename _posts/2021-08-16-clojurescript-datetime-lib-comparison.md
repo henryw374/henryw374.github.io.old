@@ -18,7 +18,7 @@ It is implemented on top of a pure Javascript implementation of `java.time`
 called JS-Joda.
 
 It is also the underlying library for Juxt's [Tick](https://github.com/juxt/tick) 
- which offers a powerful date-time API beyond what java.time offers. In this blog post I am considering cljc.java-time
+ which provides a powerful date-time API beyond what java.time offers. In this blog post I am considering cljc.java-time
  instead of Tick, because I expect a larger proportion of readers will already have some familiarity 
  with java.time's API. 
 
