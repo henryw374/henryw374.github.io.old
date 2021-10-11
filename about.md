@@ -4,10 +4,7 @@ title: About
 permalink: /about/
 ---
 
-My name is Henry Widd, I am the creator of [MoneyRebase](https://moneyrebase.com), a tool to help you get some perspective
-on your finances.
-
-I am also an independent software consultant who has been developing software for over 15 years, mostly in the financial and aerospace domains. See my [LinkedIn profile](https://www.linkedin.com/in/henry-widd-ab33674/) for more info. 
+My name is Henry Widd, I am an independent software consultant who has been developing software for over 15 years, mostly in the financial and aerospace domains. See my [LinkedIn profile](https://www.linkedin.com/in/henry-widd-ab33674/) for more info. 
 
 Some notable examples of my open source work include:
 
