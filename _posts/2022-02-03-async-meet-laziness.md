@@ -14,7 +14,7 @@ Consider:
 ```
 
 Since `range` returns a lazy sequence and `doseq` does not retain the head of the
-sequence, there will only be one element of the sequence realized at every step of the `do`.1000000
+sequence, there will only be one element of the sequence realized at every step of the `do`.
 
 Ok, let's split the creation and consumption of the lazy sequence in a chained promise. 
 I am using [the promesa library](https://github.com/funcool/promesa) on the jvm, which
