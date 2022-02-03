@@ -32,18 +32,18 @@ It looks like it should be just as lazy. Nowhere is the code above retaining a r
 the head of the sequence - and yet it is! 
 
 The `then` promise internally has a reference to the preceding promise and that promise has a reference
-to its result - the head of the sequence. When the first promise returns the sequence is unrealized,
-but as the subsequent promise consumes the sequence it is realized and the head retained 
-by the preceding one!
+to its result - the head of the sequence. When the first promise returns, the sequence is unrealized,
+but as the subsequent `then` promise consumes the sequence it is realized and the head retained 
+by the preceding promise!
 
 What happens if there is a longer chain of promises? A promise executing in a chain
 only has reference to the preceding one. The preceding one has lost its reference to the 
-next one upstream, so in a chain just the current and immediately preceding one are not 
+next one upstream of itself, so in a chain just the current and immediately preceding one are not 
 gc-able. 
 
 So? Well imagine you are streaming results out of a db for example - that might be 
 modelled as a lazy seq, which is consumed through e.g. doseq and written out to a 
-stream. Sounds like a nice scalable solution, but if the db request results in a 
+stream. Sounds like a nice memory-friendly solution, but if the db request results in a 
 promise it might seem natural to keep chaining that result on. 
 
 # Further thoughts 
