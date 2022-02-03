@@ -14,10 +14,10 @@ Consider:
 ```
 
 Since `range` returns a lazy sequence and `doseq` does not retain the head of the
-sequence, there will only be one element of the sequence realized at every step of the `do`.
+sequence, there will only be one element of the sequence realized at every step of the `doseq`.
 
-Ok, let's split the creation and consumption of the lazy sequence in a chained promise. 
-I am using [the promesa library](https://github.com/funcool/promesa) on the jvm, which
+Now let's split the creation and consumption of the lazy sequence over chained promises. 
+I am using [the promesa library](https://github.com/funcool/promesa), which on the jvm
 is a thin wrapper over java.util.concurrent#CompletableFuture.
 
 ```clojure
