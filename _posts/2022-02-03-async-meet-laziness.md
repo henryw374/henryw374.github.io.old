@@ -1,6 +1,6 @@
 ---
 layout: post
-title: hey Async! meet Laziness
+title: you Promise to be Lazy?
 description: Combining Java's async with Clojure's laziness yields some interesting behaviour
 category: clojure
 ---
