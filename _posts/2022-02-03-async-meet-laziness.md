@@ -1,7 +1,7 @@
 ---
 layout: post
 title: you Promise to be Lazy?
-description: Combining Java's async with Clojure's laziness yields some interesting behaviour
+description: Combining Java's promises with Clojure's laziness yields some interesting behaviour
 category: clojure
 ---
 
