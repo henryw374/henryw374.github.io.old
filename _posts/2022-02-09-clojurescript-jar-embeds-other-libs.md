@@ -10,7 +10,7 @@ lists compile dependencies which include: data.json, tools.reader and transit-cl
 
 However the clojurescript jar itself is something like an uberjar: It includes compiled data.json, tools.reader and transit-clj and transit-java
 namespaces inside itself. That means that although it declares dependencies on those libraries, when you
-use Clojurescript yourself, those libraries' artifacts are not used at all. 
+use Clojurescript yourself, those libraries' artifacts are not used at all (despite being on your disk and in the classpath). 
 
 The output of this command shows the dependencies I am referring to:
 
