@@ -16,16 +16,19 @@ compared to the one Clojurescript was compiled with, you can't. This was not an 
 for a long time because those libraries didn't change. Now e.g. clojure.data.json has
 changed, hence why I hit the problem. 
 
-You might ask why I would be using Clojurescript and clojure.data.json together in the same jvm. 
-Well, in development I tend to have my server and client dependencies combined, so 
+One might ask why I would be using Clojurescript and clojure.data.json together in the same jvm. 
+Well, in my case, in development I tend to have my server and client dependencies combined, so 
 I run cljs compile and server side stuff in one vm. When deploying, testing and so on 
 they are usually separate. It is possible to run separate server and cljs jvm's 
-locally, but that then means I can't have a single .nrepl.edn file.   
+locally, but that then means I can't have a single .nrepl.edn file for example. There could be 
+other reasons for using these 2 together though, writing data-reader functions that use json possibly.  
 
 I raised this on clojure slack and now Clojurescript's maintainer's are aware, so hopefully
 this gets fixed. 
 
 The fix is likely to involve `shading`. This is where a library wants to use a fixed version 
 of another library, so it copies the sources of that library into itself, but changes 
-the namespaces/packages of the source library to be something different, and specific to itself. 
+the namespaces/packages of the source library to be something different, and specific to itself.
+
+My thanks go to Alex Miller for explaining this.  
  
