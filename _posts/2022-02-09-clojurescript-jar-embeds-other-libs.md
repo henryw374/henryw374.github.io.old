@@ -9,7 +9,14 @@ The [clojurescript maven artifact](https://mvnrepository.com/artifact/org.clojur
 lists compile dependencies which include: data.json, tools.reader and transit-clj and transit-java. 
 
 However the clojurescript jar itself is something like an uberjar: It includes compiled data.json, tools.reader and transit-clj and transit-java
-namespaces inside itself. 
+namespaces inside itself. That means that although it declares dependencies on those libraries, when you
+use Clojurescript yourself, those libraries' artifacts are not used at all. 
+
+The output of this command shows the dependencies I am referring to:
+
+```
+clj -Sdeps '{:deps {org.clojure/clojurescript {:mvn/version "1.11.4" } }}' -Stree
+``` 
 
 The effect is that if you want to use a different version of one of those libraries 
 compared to the one Clojurescript was compiled with, you can't. This was not an issue
@@ -23,7 +30,7 @@ I run cljs compile and server side stuff in one vm. When deploying, testing I se
 locally of course, but that then means I can't have a single .nrepl.edn file for example. There could be 
 other reasons for using these 2 together though, writing data-reader functions that use json possibly.  
 
-I raised this on clojure slack and now Clojurescript's maintainer's are aware, so hopefully
+I raised this on clojure slack and now Clojurescript's maintainers are aware, so hopefully
 this gets fixed. 
 
 The fix is likely to involve `shading`. This is where a library wants to use a fixed version 
