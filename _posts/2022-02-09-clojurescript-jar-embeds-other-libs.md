@@ -23,6 +23,19 @@ compared to the one Clojurescript was compiled with, you can't. This was not an 
 for a long time because those libraries didn't change. Now e.g. clojure.data.json has
 changed, hence why I hit the problem. 
 
+A handy technique to answer the question 'where on the classpath is namespace xy.z' getting loaded 
+from is to call `io/resource` on it. Doing that with data.json and Clojurescript in the classpath 
+gives result as follows: 
+
+```clojure 
+ (clojure.java.io/resource "clojure/data/json.clj")
+ 
+ => #object[java.net.URL 0x2c282004 "jar:file:..../.m2/repository/org/clojure/data.json/2.4.0/data.json-2.4.0.jar!/clojure/data/json.clj"]
+```
+
+which is the wrong answer! I still don't understand why io/resource shows the file there, whereas calling `require`
+on that ns returns the one embedded in Clojurescript.
+
 One might ask why I would be using Clojurescript and clojure.data.json together in the same jvm. 
 Well, in my case, in development I tend to have my server and client dependencies combined, so 
 I run cljs compile and server side stuff in one vm. When deploying and testing, I separate them 
