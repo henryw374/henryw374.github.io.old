@@ -23,8 +23,8 @@ compared to the one Clojurescript was compiled with, you can't. This was not an 
 for a long time because those libraries didn't change. Now e.g. clojure.data.json has
 changed, hence why I hit the problem. 
 
-A handy technique to answer the question 'where on the classpath is namespace xy.z' getting loaded 
-from is to call `io/resource` on it. Doing that with data.json and Clojurescript in the classpath 
+A handy technique to answer the question 'where on the classpath is namespace x.y.z getting loaded 
+from?'' is to call `io/resource` on it. Doing that with data.json and Clojurescript in the classpath 
 gives result as follows: 
 
 ```clojure 
