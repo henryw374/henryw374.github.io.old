@@ -25,8 +25,8 @@ changed, hence why I hit the problem.
 
 One might ask why I would be using Clojurescript and clojure.data.json together in the same jvm. 
 Well, in my case, in development I tend to have my server and client dependencies combined, so 
-I run cljs compile and server side stuff in one vm. When deploying, testing I separate them 
-(Clojurescript is not in the classpath). It is possible to run separate server and cljs jvm's 
+I run cljs compile and server side stuff in one vm. When deploying and testing, I separate them 
+(meaning Clojurescript jar is only on the classpath when cljs source is being compiled). It is possible to run separate server and cljs jvm's 
 locally of course, but that then means I can't have a single .nrepl.edn file for example. There could be 
 other reasons for using these 2 together though, writing data-reader functions that use json possibly.  
 
