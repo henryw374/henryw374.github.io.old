@@ -51,4 +51,9 @@ promise it might seem natural to keep chaining that result on.
 Does this apply to 
 
 * js promises? I would imagine so 
-* core.async channels? I would guess not  
+* core.async channels? I would guess not 
+
+I haven't investigated.
+
+Related to this topic is [Stuart Sierra's Lazy Effects](https://stuartsierra.com/2015/08/25/clojure-donts-lazy-effects) post,
+in which he says never mix laziness and side-effects. Good advice I would say.
