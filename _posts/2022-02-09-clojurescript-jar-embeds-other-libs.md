@@ -19,18 +19,20 @@ clj -Sdeps '{:deps {org.clojure/clojurescript {:mvn/version "1.11.4" } }}' -Stre
 ``` 
 
 The effect is that if you want to use a different version of one of those libraries 
-compared to the one Clojurescript was compiled with, you can't. This was not an issue
-for a long time because those libraries didn't change. Now e.g. clojure.data.json has
+compared to the one Clojurescript was compiled with, you can't. Well, you can't with the regular clojurescript
+artifact, you can use the non-aot version: `org.clojure/clojurescript$slim {:mvn/version “1.11.4”}`.
+
+This was not an issue for a long time because those libraries didn't change. Now e.g. clojure.data.json has
 changed, hence why I hit the problem. 
 
-A handy technique to answer the question 'where on the classpath is namespace x.y.z getting loaded 
-from?'' is to call `io/resource` on it. Doing that with data.json and Clojurescript in the classpath 
+A handy technique I usually use to answer the question 'where on the classpath is namespace x.y.z getting loaded 
+from?' is to call `io/resource` on it. Doing that with data.json and Clojurescript in the classpath 
 gives result as follows: 
 
 ```clojure 
  (clojure.java.io/resource "clojure/data/json.clj")
  
- => #object[java.net.URL 0x2c282004 "jar:file:..../.m2/repository/org/clojure/data.json/2.4.0/data.json-2.4.0.jar!/clojure/data/json.clj"]
+ => ".../.m2/repository/org/clojure/data.json/2.4.0/data.json-2.4.0.jar!/clojure/data/json.clj"]
 ```
 
 which is the wrong answer! I still don't understand why io/resource shows the file there, whereas calling `require`
@@ -46,7 +48,7 @@ other reasons for using these 2 together though, writing data-reader functions t
 I raised this on clojure slack and now Clojurescript's maintainers are aware, so hopefully
 this gets fixed. 
 
-The fix is likely to involve `shading`. This is where a library wants to use a fixed version 
+A fix is likely to involve `shading`. This is where a library wants to use a fixed version 
 of another library, so it copies the sources of that library into itself, but changes 
 the namespaces/packages of the source library to be something different, and specific to itself.
 
