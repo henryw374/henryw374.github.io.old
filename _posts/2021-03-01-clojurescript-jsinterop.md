@@ -82,7 +82,7 @@ use. This comes as the cost of having to remember to put type hints in.
 
 If we forgot to type hint `foo` in that example, the properties `bar` and `methodFoo` would be renamed and 
 the code would fail at runtime. For this reason, if you use advanced compilation, you must test your code 
-having advanced compiled it first. Generally whilst developing this is too slow, so at the very least continuous
+having advanced compiled it first. Doing advanced compilation is slow, do during development I generally avoid it, but continuous
 integration tests and beyond should use the same compilation level as production.
 
 If Google Closure did become able to optimise regular JS code (ie code that is now `foreign`), 
